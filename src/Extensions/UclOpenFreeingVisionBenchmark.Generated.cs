@@ -9,6 +9,232 @@ namespace UclOpenFreeingVisionBenchmark
 {
     #pragma warning disable // Disable all warnings
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class ArucoCalibration
+    {
+    
+        private double _arucoSize;
+    
+        private int _aspectWidth;
+    
+        private int _aspectHeight;
+    
+        private double _screenDiagonal;
+    
+        private double _scaleFactor;
+    
+        private double _arucoWidth;
+    
+        private double _arucoHeight;
+    
+        private double _extentX;
+    
+        private double _extentY;
+    
+        public ArucoCalibration()
+        {
+            _arucoSize = 0.1D;
+            _aspectWidth = 16;
+            _aspectHeight = 9;
+            _screenDiagonal = 0.684784D;
+        }
+    
+        protected ArucoCalibration(ArucoCalibration other)
+        {
+            _arucoSize = other._arucoSize;
+            _aspectWidth = other._aspectWidth;
+            _aspectHeight = other._aspectHeight;
+            _screenDiagonal = other._screenDiagonal;
+            _scaleFactor = other._scaleFactor;
+            _arucoWidth = other._arucoWidth;
+            _arucoHeight = other._arucoHeight;
+            _extentX = other._extentX;
+            _extentY = other._extentY;
+        }
+    
+        /// <summary>
+        /// The physical size of the aruco marker in meters
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoSize")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoSize")]
+        [System.ComponentModel.DescriptionAttribute("The physical size of the aruco marker in meters")]
+        public double ArucoSize
+        {
+            get
+            {
+                return _arucoSize;
+            }
+            set
+            {
+                _arucoSize = value;
+            }
+        }
+    
+        /// <summary>
+        /// The width of the display aspect ratio
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("aspectWidth")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="aspectWidth")]
+        [System.ComponentModel.DescriptionAttribute("The width of the display aspect ratio")]
+        public int AspectWidth
+        {
+            get
+            {
+                return _aspectWidth;
+            }
+            set
+            {
+                _aspectWidth = value;
+            }
+        }
+    
+        /// <summary>
+        /// The height of the display aspect ration
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("aspectHeight")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="aspectHeight")]
+        [System.ComponentModel.DescriptionAttribute("The height of the display aspect ration")]
+        public int AspectHeight
+        {
+            get
+            {
+                return _aspectHeight;
+            }
+            set
+            {
+                _aspectHeight = value;
+            }
+        }
+    
+        /// <summary>
+        /// The diagonal of the viewable part of the screen/monitor in meters
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("screenDiagonal")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="screenDiagonal")]
+        [System.ComponentModel.DescriptionAttribute("The diagonal of the viewable part of the screen/monitor in meters")]
+        public double ScreenDiagonal
+        {
+            get
+            {
+                return _screenDiagonal;
+            }
+            set
+            {
+                _screenDiagonal = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("scaleFactor", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="scaleFactor")]
+        public double ScaleFactor
+        {
+            get
+            {
+                return _scaleFactor;
+            }
+            set
+            {
+                _scaleFactor = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoWidth", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoWidth")]
+        public double ArucoWidth
+        {
+            get
+            {
+                return _arucoWidth;
+            }
+            set
+            {
+                _arucoWidth = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoHeight", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoHeight")]
+        public double ArucoHeight
+        {
+            get
+            {
+                return _arucoHeight;
+            }
+            set
+            {
+                _arucoHeight = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("extentX", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extentX")]
+        public double ExtentX
+        {
+            get
+            {
+                return _extentX;
+            }
+            set
+            {
+                _extentX = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("extentY", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extentY")]
+        public double ExtentY
+        {
+            get
+            {
+                return _extentY;
+            }
+            set
+            {
+                _extentY = value;
+            }
+        }
+    
+        public System.IObservable<ArucoCalibration> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ArucoCalibration(this)));
+        }
+    
+        public System.IObservable<ArucoCalibration> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new ArucoCalibration(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("ArucoSize = " + _arucoSize + ", ");
+            stringBuilder.Append("AspectWidth = " + _aspectWidth + ", ");
+            stringBuilder.Append("AspectHeight = " + _aspectHeight + ", ");
+            stringBuilder.Append("ScreenDiagonal = " + _screenDiagonal + ", ");
+            stringBuilder.Append("ScaleFactor = " + _scaleFactor + ", ");
+            stringBuilder.Append("ArucoWidth = " + _arucoWidth + ", ");
+            stringBuilder.Append("ArucoHeight = " + _arucoHeight + ", ");
+            stringBuilder.Append("ExtentX = " + _extentX + ", ");
+            stringBuilder.Append("ExtentY = " + _extentY);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
     /// <summary>
     /// Represents a Harp Behavior Board device.
     /// </summary>
@@ -224,6 +450,304 @@ namespace UclOpenFreeingVisionBenchmark
         {
             stringBuilder.Append("Trigger0Frequency = " + _trigger0Frequency + ", ");
             stringBuilder.Append("Trigger1Frequency = " + _trigger1Frequency);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class DisplayCalibration
+    {
+    
+        private DisplayIntrinsics _intrinsics;
+    
+        private DisplayExtrinsics _extrinsics;
+    
+        public DisplayCalibration()
+        {
+            _intrinsics = new DisplayIntrinsics();
+            _extrinsics = new DisplayExtrinsics();
+        }
+    
+        protected DisplayCalibration(DisplayCalibration other)
+        {
+            _intrinsics = other._intrinsics;
+            _extrinsics = other._extrinsics;
+        }
+    
+        /// <summary>
+        /// Intrinsics
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("intrinsics")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intrinsics")]
+        [System.ComponentModel.DescriptionAttribute("Intrinsics")]
+        public DisplayIntrinsics Intrinsics
+        {
+            get
+            {
+                return _intrinsics;
+            }
+            set
+            {
+                _intrinsics = value;
+            }
+        }
+    
+        /// <summary>
+        /// Extrinsics
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("extrinsics")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extrinsics")]
+        [System.ComponentModel.DescriptionAttribute("Extrinsics")]
+        public DisplayExtrinsics Extrinsics
+        {
+            get
+            {
+                return _extrinsics;
+            }
+            set
+            {
+                _extrinsics = value;
+            }
+        }
+    
+        public System.IObservable<DisplayCalibration> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new DisplayCalibration(this)));
+        }
+    
+        public System.IObservable<DisplayCalibration> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new DisplayCalibration(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Intrinsics = " + _intrinsics + ", ");
+            stringBuilder.Append("Extrinsics = " + _extrinsics);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class DisplayExtrinsics
+    {
+    
+        private Vector3 _rotation;
+    
+        private Vector3 _translation;
+    
+        public DisplayExtrinsics()
+        {
+            _rotation = new Vector3();
+            _translation = new Vector3();
+        }
+    
+        protected DisplayExtrinsics(DisplayExtrinsics other)
+        {
+            _rotation = other._rotation;
+            _translation = other._translation;
+        }
+    
+        /// <summary>
+        /// Euler rotation vector (radians)
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("rotation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="rotation")]
+        [System.ComponentModel.DescriptionAttribute("Euler rotation vector (radians)")]
+        public Vector3 Rotation
+        {
+            get
+            {
+                return _rotation;
+            }
+            set
+            {
+                _rotation = value;
+            }
+        }
+    
+        /// <summary>
+        /// Translation vector
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("translation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="translation")]
+        [System.ComponentModel.DescriptionAttribute("Translation vector")]
+        public Vector3 Translation
+        {
+            get
+            {
+                return _translation;
+            }
+            set
+            {
+                _translation = value;
+            }
+        }
+    
+        public System.IObservable<DisplayExtrinsics> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new DisplayExtrinsics(this)));
+        }
+    
+        public System.IObservable<DisplayExtrinsics> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new DisplayExtrinsics(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Rotation = " + _rotation + ", ");
+            stringBuilder.Append("Translation = " + _translation);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class DisplayIntrinsics
+    {
+    
+        private ViewportConfiguration _viewportConfiguration;
+    
+        private double _displayWidth;
+    
+        private double _displayHeight;
+    
+        public DisplayIntrinsics()
+        {
+            _viewportConfiguration = new ViewportConfiguration();
+            _displayWidth = 20D;
+            _displayHeight = 15D;
+        }
+    
+        protected DisplayIntrinsics(DisplayIntrinsics other)
+        {
+            _viewportConfiguration = other._viewportConfiguration;
+            _displayWidth = other._displayWidth;
+            _displayHeight = other._displayHeight;
+        }
+    
+        /// <summary>
+        /// The viewport configuration for this display intrinsic
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("viewportConfiguration")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="viewportConfiguration")]
+        [System.ComponentModel.DescriptionAttribute("The viewport configuration for this display intrinsic")]
+        public ViewportConfiguration ViewportConfiguration
+        {
+            get
+            {
+                return _viewportConfiguration;
+            }
+            set
+            {
+                _viewportConfiguration = value;
+            }
+        }
+    
+        /// <summary>
+        /// Physical display width
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("displayWidth")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="displayWidth")]
+        [System.ComponentModel.DescriptionAttribute("Physical display width")]
+        public double DisplayWidth
+        {
+            get
+            {
+                return _displayWidth;
+            }
+            set
+            {
+                _displayWidth = value;
+            }
+        }
+    
+        /// <summary>
+        /// Physical display height
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("displayHeight")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="displayHeight")]
+        [System.ComponentModel.DescriptionAttribute("Physical display height")]
+        public double DisplayHeight
+        {
+            get
+            {
+                return _displayHeight;
+            }
+            set
+            {
+                _displayHeight = value;
+            }
+        }
+    
+        public System.IObservable<DisplayIntrinsics> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new DisplayIntrinsics(this)));
+        }
+    
+        public System.IObservable<DisplayIntrinsics> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new DisplayIntrinsics(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("ViewportConfiguration = " + _viewportConfiguration + ", ");
+            stringBuilder.Append("DisplayWidth = " + _displayWidth + ", ");
+            stringBuilder.Append("DisplayHeight = " + _displayHeight);
             return true;
         }
     
@@ -691,6 +1215,257 @@ namespace UclOpenFreeingVisionBenchmark
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Screen
+    {
+    
+        private int _displayIndex;
+    
+        private int _windowWidth;
+    
+        private int _windowHeight;
+    
+        private double _targetRenderFrequency;
+    
+        private double _targetUpdateFrequency;
+    
+        private string _textureAssetsDirectory;
+    
+        private System.Collections.Generic.Dictionary<string, DisplayCalibration> _calibration;
+    
+        private double _brightness;
+    
+        private double _contrast;
+    
+        public Screen()
+        {
+            _displayIndex = 1;
+            _windowWidth = 1920;
+            _windowHeight = 1080;
+            _targetRenderFrequency = 60D;
+            _targetUpdateFrequency = 120D;
+            _textureAssetsDirectory = "Textures";
+            _brightness = 0D;
+            _contrast = 1D;
+        }
+    
+        protected Screen(Screen other)
+        {
+            _displayIndex = other._displayIndex;
+            _windowWidth = other._windowWidth;
+            _windowHeight = other._windowHeight;
+            _targetRenderFrequency = other._targetRenderFrequency;
+            _targetUpdateFrequency = other._targetUpdateFrequency;
+            _textureAssetsDirectory = other._textureAssetsDirectory;
+            _calibration = other._calibration;
+            _brightness = other._brightness;
+            _contrast = other._contrast;
+        }
+    
+        /// <summary>
+        /// Display index
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("displayIndex")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="displayIndex")]
+        [System.ComponentModel.DescriptionAttribute("Display index")]
+        public int DisplayIndex
+        {
+            get
+            {
+                return _displayIndex;
+            }
+            set
+            {
+                _displayIndex = value;
+            }
+        }
+    
+        /// <summary>
+        /// Width of the screen in pixels
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("windowWidth")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="windowWidth")]
+        [System.ComponentModel.DescriptionAttribute("Width of the screen in pixels")]
+        public int WindowWidth
+        {
+            get
+            {
+                return _windowWidth;
+            }
+            set
+            {
+                _windowWidth = value;
+            }
+        }
+    
+        /// <summary>
+        /// Height of the screen in pixels
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("windowHeight")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="windowHeight")]
+        [System.ComponentModel.DescriptionAttribute("Height of the screen in pixels")]
+        public int WindowHeight
+        {
+            get
+            {
+                return _windowHeight;
+            }
+            set
+            {
+                _windowHeight = value;
+            }
+        }
+    
+        /// <summary>
+        /// Target render frequency
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("targetRenderFrequency")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="targetRenderFrequency")]
+        [System.ComponentModel.DescriptionAttribute("Target render frequency")]
+        public double TargetRenderFrequency
+        {
+            get
+            {
+                return _targetRenderFrequency;
+            }
+            set
+            {
+                _targetRenderFrequency = value;
+            }
+        }
+    
+        /// <summary>
+        /// Target update frequency
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("targetUpdateFrequency")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="targetUpdateFrequency")]
+        [System.ComponentModel.DescriptionAttribute("Target update frequency")]
+        public double TargetUpdateFrequency
+        {
+            get
+            {
+                return _targetUpdateFrequency;
+            }
+            set
+            {
+                _targetUpdateFrequency = value;
+            }
+        }
+    
+        /// <summary>
+        /// Calibration directory
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("textureAssetsDirectory")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="textureAssetsDirectory")]
+        [System.ComponentModel.DescriptionAttribute("Calibration directory")]
+        public string TextureAssetsDirectory
+        {
+            get
+            {
+                return _textureAssetsDirectory;
+            }
+            set
+            {
+                _textureAssetsDirectory = value;
+            }
+        }
+    
+        /// <summary>
+        /// Calibration parameters for a set of named display monitors for visual stimuli
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("calibration")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="calibration")]
+        [System.ComponentModel.DescriptionAttribute("Calibration parameters for a set of named display monitors for visual stimuli")]
+        public System.Collections.Generic.Dictionary<string, DisplayCalibration> Calibration
+        {
+            get
+            {
+                return _calibration;
+            }
+            set
+            {
+                _calibration = value;
+            }
+        }
+    
+        /// <summary>
+        /// Brightness
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("brightness")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="brightness")]
+        [System.ComponentModel.DescriptionAttribute("Brightness")]
+        public double Brightness
+        {
+            get
+            {
+                return _brightness;
+            }
+            set
+            {
+                _brightness = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contrast
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("contrast")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="contrast")]
+        [System.ComponentModel.DescriptionAttribute("Contrast")]
+        public double Contrast
+        {
+            get
+            {
+                return _contrast;
+            }
+            set
+            {
+                _contrast = value;
+            }
+        }
+    
+        public System.IObservable<Screen> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Screen(this)));
+        }
+    
+        public System.IObservable<Screen> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Screen(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("DisplayIndex = " + _displayIndex + ", ");
+            stringBuilder.Append("WindowWidth = " + _windowWidth + ", ");
+            stringBuilder.Append("WindowHeight = " + _windowHeight + ", ");
+            stringBuilder.Append("TargetRenderFrequency = " + _targetRenderFrequency + ", ");
+            stringBuilder.Append("TargetUpdateFrequency = " + _targetUpdateFrequency + ", ");
+            stringBuilder.Append("TextureAssetsDirectory = " + _textureAssetsDirectory + ", ");
+            stringBuilder.Append("Calibration = " + _calibration + ", ");
+            stringBuilder.Append("Brightness = " + _brightness + ", ");
+            stringBuilder.Append("Contrast = " + _contrast);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class SpinnakerCamera
     {
     
@@ -876,6 +1651,10 @@ namespace UclOpenFreeingVisionBenchmark
     
         private string _version;
     
+        private Screen _screen;
+    
+        private ArucoCalibration _arucoCalibration;
+    
         private BehaviorBoard _behaviorBoard;
     
         private SpinnakerCamera _subjectCamera;
@@ -885,6 +1664,8 @@ namespace UclOpenFreeingVisionBenchmark
         public UclOpenFreeingVisionBenchmarkRig()
         {
             _version = "0.0.0-rc1";
+            _screen = new Screen();
+            _arucoCalibration = new ArucoCalibration();
             _behaviorBoard = new BehaviorBoard();
             _subjectCamera = new SpinnakerCamera();
             _trackCamera = new SpinnakerCamera();
@@ -894,6 +1675,8 @@ namespace UclOpenFreeingVisionBenchmark
         {
             _rootPath = other._rootPath;
             _version = other._version;
+            _screen = other._screen;
+            _arucoCalibration = other._arucoCalibration;
             _behaviorBoard = other._behaviorBoard;
             _subjectCamera = other._subjectCamera;
             _trackCamera = other._trackCamera;
@@ -928,6 +1711,36 @@ namespace UclOpenFreeingVisionBenchmark
             set
             {
                 _version = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("screen", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="screen")]
+        public Screen Screen
+        {
+            get
+            {
+                return _screen;
+            }
+            set
+            {
+                _screen = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoCalibration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoCalibration")]
+        public ArucoCalibration ArucoCalibration
+        {
+            get
+            {
+                return _arucoCalibration;
+            }
+            set
+            {
+                _arucoCalibration = value;
             }
         }
     
@@ -990,6 +1803,8 @@ namespace UclOpenFreeingVisionBenchmark
         {
             stringBuilder.Append("RootPath = " + _rootPath + ", ");
             stringBuilder.Append("Version = " + _version + ", ");
+            stringBuilder.Append("Screen = " + _screen + ", ");
+            stringBuilder.Append("ArucoCalibration = " + _arucoCalibration + ", ");
             stringBuilder.Append("BehaviorBoard = " + _behaviorBoard + ", ");
             stringBuilder.Append("SubjectCamera = " + _subjectCamera + ", ");
             stringBuilder.Append("TrackCamera = " + _trackCamera);
@@ -1168,6 +1983,254 @@ namespace UclOpenFreeingVisionBenchmark
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Vector3
+    {
+    
+        private double _x;
+    
+        private double _y;
+    
+        private double _z;
+    
+        public Vector3()
+        {
+        }
+    
+        protected Vector3(Vector3 other)
+        {
+            _x = other._x;
+            _y = other._y;
+            _z = other._z;
+        }
+    
+        /// <summary>
+        /// X coordinate of the point.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("x", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="x")]
+        [System.ComponentModel.DescriptionAttribute("X coordinate of the point.")]
+        public double X
+        {
+            get
+            {
+                return _x;
+            }
+            set
+            {
+                _x = value;
+            }
+        }
+    
+        /// <summary>
+        /// Y coordinate of the point.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("y", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="y")]
+        [System.ComponentModel.DescriptionAttribute("Y coordinate of the point.")]
+        public double Y
+        {
+            get
+            {
+                return _y;
+            }
+            set
+            {
+                _y = value;
+            }
+        }
+    
+        /// <summary>
+        /// Z coordinate of the point.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("z", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="z")]
+        [System.ComponentModel.DescriptionAttribute("Z coordinate of the point.")]
+        public double Z
+        {
+            get
+            {
+                return _z;
+            }
+            set
+            {
+                _z = value;
+            }
+        }
+    
+        public System.IObservable<Vector3> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Vector3(this)));
+        }
+    
+        public System.IObservable<Vector3> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Vector3(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("X = " + _x + ", ");
+            stringBuilder.Append("Y = " + _y + ", ");
+            stringBuilder.Append("Z = " + _z);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class ViewportConfiguration
+    {
+    
+        private double _width;
+    
+        private double _height;
+    
+        private double _x;
+    
+        private double _y;
+    
+        public ViewportConfiguration()
+        {
+            _width = 1D;
+            _height = 1D;
+            _x = 0D;
+            _y = 0D;
+        }
+    
+        protected ViewportConfiguration(ViewportConfiguration other)
+        {
+            _width = other._width;
+            _height = other._height;
+            _x = other._x;
+            _y = other._y;
+        }
+    
+        /// <summary>
+        /// The width of the viewport as a fraction of total screen width
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("width")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="width")]
+        [System.ComponentModel.DescriptionAttribute("The width of the viewport as a fraction of total screen width")]
+        public double Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                _width = value;
+            }
+        }
+    
+        /// <summary>
+        /// The height of the viewport as a fraction of total screen width
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("height")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="height")]
+        [System.ComponentModel.DescriptionAttribute("The height of the viewport as a fraction of total screen width")]
+        public double Height
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                _height = value;
+            }
+        }
+    
+        /// <summary>
+        /// The x-coordinate of the lower left corner of the viewport as a fraction of total screen width
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("x")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="x")]
+        [System.ComponentModel.DescriptionAttribute("The x-coordinate of the lower left corner of the viewport as a fraction of total " +
+            "screen width")]
+        public double X
+        {
+            get
+            {
+                return _x;
+            }
+            set
+            {
+                _x = value;
+            }
+        }
+    
+        /// <summary>
+        /// The y-coordinate of the lower left corner of the viewport as a fraction of total screen height
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("y")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="y")]
+        [System.ComponentModel.DescriptionAttribute("The y-coordinate of the lower left corner of the viewport as a fraction of total " +
+            "screen height")]
+        public double Y
+        {
+            get
+            {
+                return _y;
+            }
+            set
+            {
+                _y = value;
+            }
+        }
+    
+        public System.IObservable<ViewportConfiguration> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ViewportConfiguration(this)));
+        }
+    
+        public System.IObservable<ViewportConfiguration> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new ViewportConfiguration(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Width = " + _width + ", ");
+            stringBuilder.Append("Height = " + _height + ", ");
+            stringBuilder.Append("X = " + _x + ", ");
+            stringBuilder.Append("Y = " + _y);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Json
     {
     
@@ -1227,6 +2290,11 @@ namespace UclOpenFreeingVisionBenchmark
             return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value, formatting));
         }
 
+        public System.IObservable<string> Process(System.IObservable<ArucoCalibration> source)
+        {
+            return Process<ArucoCalibration>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<BehaviorBoard> source)
         {
             return Process<BehaviorBoard>(source);
@@ -1235,6 +2303,21 @@ namespace UclOpenFreeingVisionBenchmark
         public System.IObservable<string> Process(System.IObservable<CameraTriggerController> source)
         {
             return Process<CameraTriggerController>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayCalibration> source)
+        {
+            return Process<DisplayCalibration>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayExtrinsics> source)
+        {
+            return Process<DisplayExtrinsics>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayIntrinsics> source)
+        {
+            return Process<DisplayIntrinsics>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<ExperimentSession> source)
@@ -1257,6 +2340,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<RunningWheel>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Screen> source)
+        {
+            return Process<Screen>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<SpinnakerCamera> source)
         {
             return Process<SpinnakerCamera>(source);
@@ -1277,6 +2365,16 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<UclOpenFreeingVisionBenchmarkTaskParameters>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Vector3> source)
+        {
+            return Process<Vector3>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<ViewportConfiguration> source)
+        {
+            return Process<ViewportConfiguration>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Json> source)
         {
             return Process<Json>(source);
@@ -1291,16 +2389,23 @@ namespace UclOpenFreeingVisionBenchmark
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ArucoCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BehaviorBoard>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CameraTriggerController>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayCalibration>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayExtrinsics>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayIntrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ExperimentSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseWidths>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RunningWheel>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Screen>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SpinnakerCamera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkRig>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskLogic>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskParameters>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Vector3>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ViewportConfiguration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Json>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
@@ -1351,6 +2456,11 @@ namespace UclOpenFreeingVisionBenchmark
             });
         }
 
+        public System.IObservable<string> Process(System.IObservable<ArucoCalibration> source)
+        {
+            return Process<ArucoCalibration>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<BehaviorBoard> source)
         {
             return Process<BehaviorBoard>(source);
@@ -1359,6 +2469,21 @@ namespace UclOpenFreeingVisionBenchmark
         public System.IObservable<string> Process(System.IObservable<CameraTriggerController> source)
         {
             return Process<CameraTriggerController>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayCalibration> source)
+        {
+            return Process<DisplayCalibration>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayExtrinsics> source)
+        {
+            return Process<DisplayExtrinsics>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<DisplayIntrinsics> source)
+        {
+            return Process<DisplayIntrinsics>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<ExperimentSession> source)
@@ -1381,6 +2506,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<RunningWheel>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Screen> source)
+        {
+            return Process<Screen>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<SpinnakerCamera> source)
         {
             return Process<SpinnakerCamera>(source);
@@ -1401,6 +2531,16 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<UclOpenFreeingVisionBenchmarkTaskParameters>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Vector3> source)
+        {
+            return Process<Vector3>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<ViewportConfiguration> source)
+        {
+            return Process<ViewportConfiguration>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Json> source)
         {
             return Process<Json>(source);
@@ -1415,16 +2555,23 @@ namespace UclOpenFreeingVisionBenchmark
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ArucoCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BehaviorBoard>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CameraTriggerController>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayCalibration>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayExtrinsics>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayIntrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ExperimentSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseWidths>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RunningWheel>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Screen>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SpinnakerCamera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkRig>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskLogic>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskParameters>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Vector3>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ViewportConfiguration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Json>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {

@@ -1,13 +1,23 @@
 import os
 
 from ucl_open_freeing_vision_benchmark.rig import (
-    UclOpenFreeingVisionBenchmarkRig
+    UclOpenFreeingVisionBenchmarkRig,
+    ArucoCalibration
 )
 from ucl_open.devices.behavior_board import BehaviorBoard, CameraTriggerController
 from ucl_open.video import SpinnakerCamera
+from ucl_open.vision import Screen
 
 rig = UclOpenFreeingVisionBenchmarkRig(
     root_path="../temp_data",
+    screen = Screen(
+        window_width=1920,
+        window_height=1080,
+        target_render_frequency=240,
+        target_update_frequency=240,
+        display_index=1
+    ),
+    aruco_calibration=ArucoCalibration(),
     behavior_board=BehaviorBoard(
         port_name="COM13",
         camera_trigger_controller=CameraTriggerController(
