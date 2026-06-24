@@ -25,9 +25,9 @@ namespace UclOpenFreeingVisionBenchmark
     
         private double _scaleFactor;
     
-        private double _arucoWidth;
+        private double _viewWidth;
     
-        private double _arucoHeight;
+        private double _viewHeight;
     
         private double _extentX;
     
@@ -48,8 +48,8 @@ namespace UclOpenFreeingVisionBenchmark
             _aspectHeight = other._aspectHeight;
             _screenDiagonal = other._screenDiagonal;
             _scaleFactor = other._scaleFactor;
-            _arucoWidth = other._arucoWidth;
-            _arucoHeight = other._arucoHeight;
+            _viewWidth = other._viewWidth;
+            _viewHeight = other._viewHeight;
             _extentX = other._extentX;
             _extentY = other._extentY;
         }
@@ -140,31 +140,31 @@ namespace UclOpenFreeingVisionBenchmark
             }
         }
     
-        [Newtonsoft.Json.JsonPropertyAttribute("arucoWidth", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoWidth")]
-        public double ArucoWidth
+        [Newtonsoft.Json.JsonPropertyAttribute("viewWidth", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="viewWidth")]
+        public double ViewWidth
         {
             get
             {
-                return _arucoWidth;
+                return _viewWidth;
             }
             set
             {
-                _arucoWidth = value;
+                _viewWidth = value;
             }
         }
     
-        [Newtonsoft.Json.JsonPropertyAttribute("arucoHeight", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoHeight")]
-        public double ArucoHeight
+        [Newtonsoft.Json.JsonPropertyAttribute("viewHeight", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="viewHeight")]
+        public double ViewHeight
         {
             get
             {
-                return _arucoHeight;
+                return _viewHeight;
             }
             set
             {
-                _arucoHeight = value;
+                _viewHeight = value;
             }
         }
     
@@ -213,8 +213,8 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("AspectHeight = " + _aspectHeight + ", ");
             stringBuilder.Append("ScreenDiagonal = " + _screenDiagonal + ", ");
             stringBuilder.Append("ScaleFactor = " + _scaleFactor + ", ");
-            stringBuilder.Append("ArucoWidth = " + _arucoWidth + ", ");
-            stringBuilder.Append("ArucoHeight = " + _arucoHeight + ", ");
+            stringBuilder.Append("ViewWidth = " + _viewWidth + ", ");
+            stringBuilder.Append("ViewHeight = " + _viewHeight + ", ");
             stringBuilder.Append("ExtentX = " + _extentX + ", ");
             stringBuilder.Append("ExtentY = " + _extentY);
             return true;
@@ -1655,6 +1655,8 @@ namespace UclOpenFreeingVisionBenchmark
     
         private ArucoCalibration _arucoCalibration;
     
+        private double _trackShapeScale;
+    
         private BehaviorBoard _behaviorBoard;
     
         private SpinnakerCamera _subjectCamera;
@@ -1677,6 +1679,7 @@ namespace UclOpenFreeingVisionBenchmark
             _version = other._version;
             _screen = other._screen;
             _arucoCalibration = other._arucoCalibration;
+            _trackShapeScale = other._trackShapeScale;
             _behaviorBoard = other._behaviorBoard;
             _subjectCamera = other._subjectCamera;
             _trackCamera = other._trackCamera;
@@ -1744,6 +1747,20 @@ namespace UclOpenFreeingVisionBenchmark
             }
         }
     
+        [Newtonsoft.Json.JsonPropertyAttribute("trackShapeScale", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trackShapeScale")]
+        public double TrackShapeScale
+        {
+            get
+            {
+                return _trackShapeScale;
+            }
+            set
+            {
+                _trackShapeScale = value;
+            }
+        }
+    
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("behaviorBoard", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="behaviorBoard")]
@@ -1805,6 +1822,7 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("Version = " + _version + ", ");
             stringBuilder.Append("Screen = " + _screen + ", ");
             stringBuilder.Append("ArucoCalibration = " + _arucoCalibration + ", ");
+            stringBuilder.Append("TrackShapeScale = " + _trackShapeScale + ", ");
             stringBuilder.Append("BehaviorBoard = " + _behaviorBoard + ", ");
             stringBuilder.Append("SubjectCamera = " + _subjectCamera + ", ");
             stringBuilder.Append("TrackCamera = " + _trackCamera);

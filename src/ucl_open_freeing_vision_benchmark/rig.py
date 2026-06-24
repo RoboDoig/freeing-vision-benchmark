@@ -24,28 +24,29 @@ class ArucoCalibration(BaseSchema):
     
     @computed_field
     @property
-    def aruco_width(self) -> float:
+    def view_width(self) -> float:
         return self.screen_diagonal * self.aspect_width / self.scale_factor
     
     @computed_field
     @property
-    def aruco_height(self) -> float:
+    def view_height(self) -> float:
         return self.screen_diagonal * self.aspect_height / self.scale_factor
     
     @computed_field
     @property
     def extent_x(self) -> float:
-        return 0.1 / self.aruco_width * 2
+        return self.aruco_size / self.view_width * 2
     
     @computed_field
     @property
     def extent_y(self) -> float:
-        return 0.1 / self.aruco_height * 2
+        return self.aruco_size / self.view_height * 2
 
 class UclOpenFreeingVisionBenchmarkRig(Rig):
     version: Literal[__semver__] = __semver__
     screen: Screen
     aruco_calibration: ArucoCalibration
+    track_shape_scale: float
     behavior_board: BehaviorBoard
     subject_camera: SpinnakerCamera
     track_camera: SpinnakerCamera

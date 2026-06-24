@@ -31,14 +31,14 @@
           "title": "ScaleFactor",
           "type": "number"
         },
-        "arucoWidth": {
+        "viewWidth": {
           "readOnly": true,
-          "title": "ArucoWidth",
+          "title": "ViewWidth",
           "type": "number"
         },
-        "arucoHeight": {
+        "viewHeight": {
           "readOnly": true,
-          "title": "ArucoHeight",
+          "title": "ViewHeight",
           "type": "number"
         },
         "extentX": {
@@ -54,8 +54,8 @@
       },
       "required": [
         "scaleFactor",
-        "arucoWidth",
-        "arucoHeight",
+        "viewWidth",
+        "viewHeight",
         "extentX",
         "extentY"
       ],
@@ -495,6 +495,10 @@
         "arucoCalibration": {
           "$ref": "#/$defs/ArucoCalibration"
         },
+        "trackShapeScale": {
+          "title": "TrackShapeScale",
+          "type": "number"
+        },
         "behaviorBoard": {
           "$ref": "#/$defs/BehaviorBoard"
         },
@@ -511,6 +515,7 @@
         "rootPath",
         "screen",
         "arucoCalibration",
+        "trackShapeScale",
         "behaviorBoard",
         "subjectCamera",
         "trackCamera"
