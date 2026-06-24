@@ -1,0 +1,326 @@
+{
+  "$defs": {
+    "BehaviorBoard": {
+      "description": "Represents a Harp Behavior Board device.",
+      "properties": {
+        "portName": {
+          "description": "The name of the device serial port.",
+          "examples": [
+            "COM"
+          ],
+          "title": "PortName",
+          "type": "string"
+        },
+        "pulseController": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PulseController"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional PulseController module for generating digital output pulses.",
+          "title": "PulseController"
+        },
+        "cameraTriggerController": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CameraTriggerController"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional CameraTriggerController module for emitting camera trigger pulses.",
+          "title": "CameraTriggerController"
+        },
+        "runningWheel": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RunningWheel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional RunningWheelModule module to define wheel geometry.",
+          "title": "RunningWheel"
+        }
+      },
+      "required": [
+        "portName"
+      ],
+      "title": "BehaviorBoard",
+      "type": "object"
+    },
+    "CameraTriggerController": {
+      "description": "Represents a CameraTriggerController module on a BehaviorBoard device.",
+      "properties": {
+        "trigger0Frequency": {
+          "description": "The frequency, in Hz, at which to emit camera triggers on Trigger0 (DO0, CameraOutput0)",
+          "examples": [
+            "50"
+          ],
+          "title": "Trigger0Frequency",
+          "type": "integer"
+        },
+        "trigger1Frequency": {
+          "description": "The frequency, in Hz, at which to emit camera triggers on Trigger1 (DO1, CameraOutput1)",
+          "examples": [
+            "50"
+          ],
+          "title": "Trigger1Frequency",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "trigger0Frequency",
+        "trigger1Frequency"
+      ],
+      "title": "CameraTriggerController",
+      "type": "object"
+    },
+    "ExperimentSession": {
+      "description": "The base class for creating ucl-open experiment models.",
+      "properties": {
+        "workflow": {
+          "description": "Path to the workflow running the experiment.",
+          "title": "Workflow",
+          "type": "string"
+        },
+        "commit": {
+          "description": "Commit hash of the experiment repo.",
+          "title": "Commit",
+          "type": "string"
+        },
+        "repositoryUrl": {
+          "description": "The URL of the git repository used to version experiment source code.",
+          "title": "RepositoryUrl",
+          "type": "string"
+        },
+        "subjectId": {
+          "description": "The subject id for this session.",
+          "title": "SubjectId",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "The session identifier.",
+          "title": "SessionId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "workflow",
+        "commit",
+        "repositoryUrl",
+        "subjectId",
+        "sessionId"
+      ],
+      "title": "ExperimentSession",
+      "type": "object"
+    },
+    "PulseController": {
+      "description": "Represents the PulseController module on the BehaviorBoard.",
+      "properties": {
+        "activePulses": {
+          "description": "List of digital output lines that are enabled for pulse generation.",
+          "items": {
+            "type": "string"
+          },
+          "title": "ActivePulses",
+          "type": "array"
+        },
+        "pulseWidths": {
+          "$ref": "#/$defs/PulseWidths",
+          "description": "Pulse width configuration for DO1, DO2, and DO3 lines."
+        }
+      },
+      "required": [
+        "pulseWidths"
+      ],
+      "title": "PulseController",
+      "type": "object"
+    },
+    "PulseWidths": {
+      "properties": {
+        "PulseDO1": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "PulseDo1",
+          "type": "integer"
+        },
+        "PulseDO2": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "PulseDo2",
+          "type": "integer"
+        },
+        "PulseDO3": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "PulseDo3",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "PulseDO1",
+        "PulseDO2",
+        "PulseDO3"
+      ],
+      "title": "PulseWidths",
+      "type": "object"
+    },
+    "RunningWheel": {
+      "description": "Represents configuration parameters of the RunningWheel module.\nExposes wheel geometry parameters used to compute speed and distance from encoder counts.",
+      "properties": {
+        "countsPerRevolution": {
+          "description": "Number of encoder counts per full revolution of the running wheel.",
+          "title": "CountsPerRevolution",
+          "type": "integer"
+        },
+        "wheelDiameter": {
+          "description": "The diameter of the running wheel, in metric units.",
+          "title": "WheelDiameter",
+          "type": "number"
+        }
+      },
+      "required": [
+        "countsPerRevolution",
+        "wheelDiameter"
+      ],
+      "title": "RunningWheel",
+      "type": "object"
+    },
+    "SpinnakerCamera": {
+      "properties": {
+        "triggerFrequency": {
+          "default": 50,
+          "description": "The frequency at which the camera is triggered (in Hz).",
+          "minimum": 1,
+          "title": "TriggerFrequency",
+          "type": "number"
+        },
+        "exposureTime": {
+          "default": 15000,
+          "description": "The exposure time for the camera (in microseconds).",
+          "minimum": 0,
+          "title": "ExposureTime",
+          "type": "number"
+        },
+        "serialNumber": {
+          "default": "00000",
+          "description": "The serial number of the camera.",
+          "title": "SerialNumber",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gain": {
+          "default": 1,
+          "description": "The camera gain.",
+          "minimum": 0,
+          "title": "Gain",
+          "type": "number"
+        },
+        "binning": {
+          "default": 1,
+          "description": "The binning setting for the camera.",
+          "minimum": 1,
+          "title": "Binning",
+          "type": "integer"
+        },
+        "discriminatorType": {
+          "const": "SpinnakerCamera",
+          "default": "SpinnakerCamera",
+          "title": "DiscriminatorType",
+          "type": "string"
+        }
+      },
+      "title": "SpinnakerCamera",
+      "type": "object"
+    },
+    "UclOpenFreeingVisionBenchmarkRig": {
+      "properties": {
+        "rootPath": {
+          "description": "The root path on which to log all data.",
+          "title": "RootPath",
+          "type": "string"
+        },
+        "version": {
+          "const": "0.0.0-rc1",
+          "default": "0.0.0-rc1",
+          "title": "Version",
+          "type": "string"
+        },
+        "behaviorBoard": {
+          "$ref": "#/$defs/BehaviorBoard"
+        },
+        "subjectCamera": {
+          "$ref": "#/$defs/SpinnakerCamera",
+          "title": "SubjectCamera"
+        },
+        "trackCamera": {
+          "$ref": "#/$defs/SpinnakerCamera",
+          "title": "TrackCamera"
+        }
+      },
+      "required": [
+        "rootPath",
+        "behaviorBoard",
+        "subjectCamera",
+        "trackCamera"
+      ],
+      "title": "UclOpenFreeingVisionBenchmarkRig",
+      "type": "object"
+    },
+    "UclOpenFreeingVisionBenchmarkTaskLogic": {
+      "properties": {
+        "version": {
+          "const": "0.0.0-rc1",
+          "default": "0.0.0-rc1",
+          "title": "Version",
+          "type": "string"
+        },
+        "name": {
+          "const": "UclOpenFreeingVisionBenchmark",
+          "default": "UclOpenFreeingVisionBenchmark",
+          "description": "Name of the task logic",
+          "title": "Name",
+          "type": "string"
+        },
+        "taskParameters": {
+          "$ref": "#/$defs/UclOpenFreeingVisionBenchmarkTaskParameters",
+          "description": "Parameters of the task logic",
+          "title": "TaskParameters"
+        }
+      },
+      "required": [
+        "taskParameters"
+      ],
+      "title": "UclOpenFreeingVisionBenchmarkTaskLogic",
+      "type": "object"
+    },
+    "UclOpenFreeingVisionBenchmarkTaskParameters": {
+      "properties": {},
+      "title": "UclOpenFreeingVisionBenchmarkTaskParameters",
+      "type": "object"
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/UclOpenFreeingVisionBenchmarkTaskLogic"
+    },
+    {
+      "$ref": "#/$defs/UclOpenFreeingVisionBenchmarkRig"
+    },
+    {
+      "$ref": "#/$defs/ExperimentSession"
+    }
+  ],
+  "title": "RootModel[Union[UclOpenFreeingVisionBenchmarkTaskLogic, UclOpenFreeingVisionBenchmarkRig, ExperimentSession]]"
+}
