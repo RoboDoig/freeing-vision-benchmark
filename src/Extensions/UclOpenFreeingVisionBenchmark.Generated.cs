@@ -374,6 +374,202 @@ namespace UclOpenFreeingVisionBenchmark
     }
 
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class CalibratedSpinnakerCamera
+    {
+    
+        private double _triggerFrequency;
+    
+        private double _exposureTime;
+    
+        private string _serialNumber;
+    
+        private double _gain;
+    
+        private int _binning;
+    
+        private string _discriminatorType;
+    
+        private string _calibrationFile;
+    
+        public CalibratedSpinnakerCamera()
+        {
+            _triggerFrequency = 50D;
+            _exposureTime = 15000D;
+            _serialNumber = "00000";
+            _gain = 1D;
+            _binning = 1;
+            _discriminatorType = "CalibratedSpinnakerCamera";
+        }
+    
+        protected CalibratedSpinnakerCamera(CalibratedSpinnakerCamera other)
+        {
+            _triggerFrequency = other._triggerFrequency;
+            _exposureTime = other._exposureTime;
+            _serialNumber = other._serialNumber;
+            _gain = other._gain;
+            _binning = other._binning;
+            _discriminatorType = other._discriminatorType;
+            _calibrationFile = other._calibrationFile;
+        }
+    
+        /// <summary>
+        /// The frequency at which the camera is triggered (in Hz).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("triggerFrequency")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="triggerFrequency")]
+        [System.ComponentModel.DescriptionAttribute("The frequency at which the camera is triggered (in Hz).")]
+        public double TriggerFrequency
+        {
+            get
+            {
+                return _triggerFrequency;
+            }
+            set
+            {
+                _triggerFrequency = value;
+            }
+        }
+    
+        /// <summary>
+        /// The exposure time for the camera (in microseconds).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("exposureTime")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="exposureTime")]
+        [System.ComponentModel.DescriptionAttribute("The exposure time for the camera (in microseconds).")]
+        public double ExposureTime
+        {
+            get
+            {
+                return _exposureTime;
+            }
+            set
+            {
+                _exposureTime = value;
+            }
+        }
+    
+        /// <summary>
+        /// The serial number of the camera.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("serialNumber")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="serialNumber")]
+        [System.ComponentModel.DescriptionAttribute("The serial number of the camera.")]
+        public string SerialNumber
+        {
+            get
+            {
+                return _serialNumber;
+            }
+            set
+            {
+                _serialNumber = value;
+            }
+        }
+    
+        /// <summary>
+        /// The camera gain.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("gain")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="gain")]
+        [System.ComponentModel.DescriptionAttribute("The camera gain.")]
+        public double Gain
+        {
+            get
+            {
+                return _gain;
+            }
+            set
+            {
+                _gain = value;
+            }
+        }
+    
+        /// <summary>
+        /// The binning setting for the camera.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("binning")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="binning")]
+        [System.ComponentModel.DescriptionAttribute("The binning setting for the camera.")]
+        public int Binning
+        {
+            get
+            {
+                return _binning;
+            }
+            set
+            {
+                _binning = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("discriminatorType")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="discriminatorType")]
+        public string DiscriminatorType
+        {
+            get
+            {
+                return _discriminatorType;
+            }
+            set
+            {
+                _discriminatorType = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("calibrationFile", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="calibrationFile")]
+        public string CalibrationFile
+        {
+            get
+            {
+                return _calibrationFile;
+            }
+            set
+            {
+                _calibrationFile = value;
+            }
+        }
+    
+        public System.IObservable<CalibratedSpinnakerCamera> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new CalibratedSpinnakerCamera(this)));
+        }
+    
+        public System.IObservable<CalibratedSpinnakerCamera> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new CalibratedSpinnakerCamera(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("TriggerFrequency = " + _triggerFrequency + ", ");
+            stringBuilder.Append("ExposureTime = " + _exposureTime + ", ");
+            stringBuilder.Append("SerialNumber = " + _serialNumber + ", ");
+            stringBuilder.Append("Gain = " + _gain + ", ");
+            stringBuilder.Append("Binning = " + _binning + ", ");
+            stringBuilder.Append("DiscriminatorType = " + _discriminatorType + ", ");
+            stringBuilder.Append("CalibrationFile = " + _calibrationFile);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
     /// <summary>
     /// Represents a CameraTriggerController module on a BehaviorBoard device.
     /// </summary>
@@ -906,6 +1102,151 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("RepositoryUrl = " + _repositoryUrl + ", ");
             stringBuilder.Append("SubjectId = " + _subjectId + ", ");
             stringBuilder.Append("SessionId = " + _sessionId);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class IntrinsicsCalibrationRig
+    {
+    
+        private string _rootPath;
+    
+        private string _version;
+    
+        private Screen _screen;
+    
+        private BehaviorBoard _behaviorBoard;
+    
+        private SpinnakerCamera _camera;
+    
+        public IntrinsicsCalibrationRig()
+        {
+            _version = "0.0.0-rc1";
+            _screen = new Screen();
+            _behaviorBoard = new BehaviorBoard();
+            _camera = new SpinnakerCamera();
+        }
+    
+        protected IntrinsicsCalibrationRig(IntrinsicsCalibrationRig other)
+        {
+            _rootPath = other._rootPath;
+            _version = other._version;
+            _screen = other._screen;
+            _behaviorBoard = other._behaviorBoard;
+            _camera = other._camera;
+        }
+    
+        /// <summary>
+        /// The root path on which to log all data.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("rootPath", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="rootPath")]
+        [System.ComponentModel.DescriptionAttribute("The root path on which to log all data.")]
+        public string RootPath
+        {
+            get
+            {
+                return _rootPath;
+            }
+            set
+            {
+                _rootPath = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("version")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="version")]
+        public string Version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                _version = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("screen", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="screen")]
+        public Screen Screen
+        {
+            get
+            {
+                return _screen;
+            }
+            set
+            {
+                _screen = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("behaviorBoard", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="behaviorBoard")]
+        public BehaviorBoard BehaviorBoard
+        {
+            get
+            {
+                return _behaviorBoard;
+            }
+            set
+            {
+                _behaviorBoard = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="camera")]
+        public SpinnakerCamera Camera
+        {
+            get
+            {
+                return _camera;
+            }
+            set
+            {
+                _camera = value;
+            }
+        }
+    
+        public System.IObservable<IntrinsicsCalibrationRig> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new IntrinsicsCalibrationRig(this)));
+        }
+    
+        public System.IObservable<IntrinsicsCalibrationRig> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new IntrinsicsCalibrationRig(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("RootPath = " + _rootPath + ", ");
+            stringBuilder.Append("Version = " + _version + ", ");
+            stringBuilder.Append("Screen = " + _screen + ", ");
+            stringBuilder.Append("BehaviorBoard = " + _behaviorBoard + ", ");
+            stringBuilder.Append("Camera = " + _camera);
             return true;
         }
     
@@ -1659,9 +2000,9 @@ namespace UclOpenFreeingVisionBenchmark
     
         private BehaviorBoard _behaviorBoard;
     
-        private SpinnakerCamera _subjectCamera;
+        private CalibratedSpinnakerCamera _subjectCamera;
     
-        private SpinnakerCamera _trackCamera;
+        private CalibratedSpinnakerCamera _trackCamera;
     
         public UclOpenFreeingVisionBenchmarkRig()
         {
@@ -1669,8 +2010,8 @@ namespace UclOpenFreeingVisionBenchmark
             _screen = new Screen();
             _arucoCalibration = new ArucoCalibration();
             _behaviorBoard = new BehaviorBoard();
-            _subjectCamera = new SpinnakerCamera();
-            _trackCamera = new SpinnakerCamera();
+            _subjectCamera = new CalibratedSpinnakerCamera();
+            _trackCamera = new CalibratedSpinnakerCamera();
         }
     
         protected UclOpenFreeingVisionBenchmarkRig(UclOpenFreeingVisionBenchmarkRig other)
@@ -1779,7 +2120,7 @@ namespace UclOpenFreeingVisionBenchmark
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("subjectCamera", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="subjectCamera")]
-        public SpinnakerCamera SubjectCamera
+        public CalibratedSpinnakerCamera SubjectCamera
         {
             get
             {
@@ -1794,7 +2135,7 @@ namespace UclOpenFreeingVisionBenchmark
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("trackCamera", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trackCamera")]
-        public SpinnakerCamera TrackCamera
+        public CalibratedSpinnakerCamera TrackCamera
         {
             get
             {
@@ -2318,6 +2659,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<BehaviorBoard>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<CalibratedSpinnakerCamera> source)
+        {
+            return Process<CalibratedSpinnakerCamera>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<CameraTriggerController> source)
         {
             return Process<CameraTriggerController>(source);
@@ -2341,6 +2687,11 @@ namespace UclOpenFreeingVisionBenchmark
         public System.IObservable<string> Process(System.IObservable<ExperimentSession> source)
         {
             return Process<ExperimentSession>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<IntrinsicsCalibrationRig> source)
+        {
+            return Process<IntrinsicsCalibrationRig>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<PulseController> source)
@@ -2409,11 +2760,13 @@ namespace UclOpenFreeingVisionBenchmark
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ArucoCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BehaviorBoard>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CalibratedSpinnakerCamera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CameraTriggerController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayExtrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayIntrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ExperimentSession>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<IntrinsicsCalibrationRig>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseWidths>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RunningWheel>))]
@@ -2484,6 +2837,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<BehaviorBoard>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<CalibratedSpinnakerCamera> source)
+        {
+            return Process<CalibratedSpinnakerCamera>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<CameraTriggerController> source)
         {
             return Process<CameraTriggerController>(source);
@@ -2507,6 +2865,11 @@ namespace UclOpenFreeingVisionBenchmark
         public System.IObservable<string> Process(System.IObservable<ExperimentSession> source)
         {
             return Process<ExperimentSession>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<IntrinsicsCalibrationRig> source)
+        {
+            return Process<IntrinsicsCalibrationRig>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<PulseController> source)
@@ -2575,11 +2938,13 @@ namespace UclOpenFreeingVisionBenchmark
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ArucoCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BehaviorBoard>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CalibratedSpinnakerCamera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CameraTriggerController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayCalibration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayExtrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<DisplayIntrinsics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ExperimentSession>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<IntrinsicsCalibrationRig>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseController>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PulseWidths>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RunningWheel>))]

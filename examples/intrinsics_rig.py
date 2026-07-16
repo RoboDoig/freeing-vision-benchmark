@@ -1,15 +1,15 @@
 import os
 
-from ucl_open_freeing_vision_benchmark.rig import (
-    UclOpenFreeingVisionBenchmarkRig,
-    CalibratedSpinnakerCamera,
-    ArucoCalibration
+from ucl_open_freeing_vision_benchmark.intrinsics_rig import (
+    IntrinsicsCalibrationRig
 )
+
+from ucl_open.core.rig import Rig
 from ucl_open.devices.behavior_board import BehaviorBoard, CameraTriggerController
 from ucl_open.video import SpinnakerCamera
 from ucl_open.vision import Screen
 
-rig = UclOpenFreeingVisionBenchmarkRig(
+rig = IntrinsicsCalibrationRig(
     root_path="../temp_data",
     screen = Screen(
         window_width=1920,
@@ -18,8 +18,6 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         target_update_frequency=240,
         display_index=0
     ),
-    aruco_calibration=ArucoCalibration(),
-    track_shape_scale=0.2,
     behavior_board=BehaviorBoard(
         port_name="COM3",
         camera_trigger_controller=CameraTriggerController(
@@ -27,19 +25,12 @@ rig = UclOpenFreeingVisionBenchmarkRig(
             trigger1_frequency=150
         )
     ),
-    subject_camera=CalibratedSpinnakerCamera(
-        calibration_file="c:/Users/saleem_lab/Documents/repos/freeing-vision-benchmark/src/intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
+    camera=SpinnakerCamera(
         serial_number="25224819",
-        trigger_frequency=150,
-        exposure_time=3000
-    ),
-    track_camera=CalibratedSpinnakerCamera(
-        calibration_file="C:/Users/saleem_lab/Documents/repos/freeing-vision-benchmark/src/intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml",
-        serial_number="25170682",
         trigger_frequency=150,
         exposure_time=3000,
         binning=2
-    ),
+    )
 )
 
 def main(path_seed: str = "./local/{schema}.json"):

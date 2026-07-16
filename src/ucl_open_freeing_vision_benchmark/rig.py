@@ -11,6 +11,9 @@ from ucl_open.vision import Screen
 
 from ucl_open_freeing_vision_benchmark import __semver__
 
+class CalibratedSpinnakerCamera(SpinnakerCamera):
+    calibration_file: str
+
 class ArucoCalibration(BaseSchema):
     aruco_size: float = Field(description="The physical size of the aruco marker in meters", default=0.1)
     aspect_width: int = Field(description="The width of the display aspect ratio", default=16)
@@ -48,5 +51,5 @@ class UclOpenFreeingVisionBenchmarkRig(Rig):
     aruco_calibration: ArucoCalibration
     track_shape_scale: float
     behavior_board: BehaviorBoard
-    subject_camera: SpinnakerCamera
-    track_camera: SpinnakerCamera
+    subject_camera: CalibratedSpinnakerCamera
+    track_camera: CalibratedSpinnakerCamera
