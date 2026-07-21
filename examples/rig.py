@@ -28,13 +28,13 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         )
     ),
     subject_camera=CalibratedSpinnakerCamera(
-        calibration_file="c:/Users/saleem_lab/Documents/repos/freeing-vision-benchmark/src/intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
+        calibration_file="./intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
         serial_number="25224819",
         trigger_frequency=150,
         exposure_time=3000
     ),
     track_camera=CalibratedSpinnakerCamera(
-        calibration_file="C:/Users/saleem_lab/Documents/repos/freeing-vision-benchmark/src/intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml",
+        calibration_file="./intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml",
         serial_number="25170682",
         trigger_frequency=150,
         exposure_time=3000,
