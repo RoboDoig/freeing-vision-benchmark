@@ -14,9 +14,9 @@ rig = UclOpenFreeingVisionBenchmarkRig(
     screen = Screen(
         window_width=1920,
         window_height=1080,
-        target_render_frequency=240,
-        target_update_frequency=240,
-        display_index=0
+        target_render_frequency=360,
+        target_update_frequency=360,
+        display_index=1
     ),
     aruco_calibration=ArucoCalibration(),
     track_shape_scale=0.2,
@@ -31,13 +31,14 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         calibration_file="./intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
         serial_number="25224819",
         trigger_frequency=150,
-        exposure_time=3000
+        exposure_time=2000,
+        binning=2
     ),
     track_camera=CalibratedSpinnakerCamera(
         calibration_file="./intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml",
         serial_number="25170682",
         trigger_frequency=150,
-        exposure_time=3000,
+        exposure_time=1000,
         binning=2
     ),
 )
