@@ -6,6 +6,10 @@ This repo contains calibration and benchmarking procedures for the `freeing-visi
 
 ## Procedure
 
+### Screens
+
+In the NVIDIA control panel, ensure screens are set to their maximum update rate! ~360Hz.
+
 ### Connecting Cameras
 
 Connect both the subject and tracking camera via USB. It is crucial that these cameras are connected with a camera / USB port / cable combination that allows them to achieve the maximum device link throughput. This can be confirmed by connecting a camera and checking the device link throughput limit property in `SpinView` (under the Settings tab). The value should be at least 500000000.
