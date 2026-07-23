@@ -4,6 +4,9 @@
 
 This repo contains calibration and benchmarking procedures for the `freeing-vision` project.
 
+## Notes to add:
+Performance (on this machine at least) is hampered by having visualizers open, especially those with rapid update rates!
+
 ## Procedure
 
 ### Screens
