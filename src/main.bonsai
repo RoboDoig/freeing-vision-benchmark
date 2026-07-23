@@ -100,8 +100,8 @@
                     <Combinator xsi:type="gl:CreateWindow">
                       <gl:Width>1920</gl:Width>
                       <gl:Height>1080</gl:Height>
-                      <gl:VSync>Off</gl:VSync>
-                      <gl:SwapSync>false</gl:SwapSync>
+                      <gl:VSync>On</gl:VSync>
+                      <gl:SwapSync>true</gl:SwapSync>
                       <gl:ClearColor>White</gl:ClearColor>
                       <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
                       <gl:CursorVisible>true</gl:CursorVisible>
@@ -292,14 +292,14 @@
                     <Width>0.596841</Width>
                     <Height>0.335723042</Height>
                     <Rotation>
-                      <X>-13.2128114116402</X>
-                      <Y>7.1618870617706651</Y>
-                      <Z>0.30983699086521571</Z>
+                      <X>NaN</X>
+                      <Y>NaN</Y>
+                      <Z>NaN</Z>
                     </Rotation>
                     <Translation>
-                      <X>0.052102096378803253</X>
-                      <Y>-0.012586116790771484</Y>
-                      <Z>-0.46127524971961975</Z>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
                     </Translation>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
@@ -1216,7 +1216,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\ArucoDetection\ArucoDetection.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\ArucoDetection\ArucoDetection.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -1361,7 +1361,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\SubjectIntrinsics\SubjectIntrinsics.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\SubjectIntrinsics\SubjectIntrinsics.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -1490,7 +1490,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\TrackIntrinsics\TrackIntrinsics.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\TrackIntrinsics\TrackIntrinsics.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -1629,7 +1629,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\TrackCamera\TrackCamera.csv</io:FileName>
+                          <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\TrackCamera\TrackCamera.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -1714,7 +1714,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="cv:VideoWriter">
-                            <cv:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\TrackCamera\TrackCamera.avi</cv:FileName>
+                            <cv:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\TrackCamera\TrackCamera.avi</cv:FileName>
                             <cv:Suffix>None</cv:Suffix>
                             <cv:Buffered>true</cv:Buffered>
                             <cv:Overwrite>false</cv:Overwrite>
@@ -1884,7 +1884,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvWriter">
-                          <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\SubjectCamera\SubjectCamera.csv</io:FileName>
+                          <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\SubjectCamera\SubjectCamera.csv</io:FileName>
                           <io:Append>false</io:Append>
                           <io:Overwrite>false</io:Overwrite>
                           <io:Suffix>None</io:Suffix>
@@ -1969,7 +1969,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="cv:VideoWriter">
-                            <cv:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\SubjectCamera\SubjectCamera.avi</cv:FileName>
+                            <cv:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\SubjectCamera\SubjectCamera.avi</cv:FileName>
                             <cv:Suffix>None</cv:Suffix>
                             <cv:Buffered>true</cv:Buffered>
                             <cv:Overwrite>false</cv:Overwrite>
@@ -2113,7 +2113,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T09-14-12\RenderFrame\RenderFrame.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-23T12-34-24\RenderFrame\RenderFrame.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
