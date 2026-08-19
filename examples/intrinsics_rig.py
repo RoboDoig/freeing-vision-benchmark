@@ -14,8 +14,8 @@ rig = IntrinsicsCalibrationRig(
     screen = Screen(
         window_width=1920,
         window_height=1080,
-        target_render_frequency=240,
-        target_update_frequency=240,
+        target_render_frequency=360,
+        target_update_frequency=360,
         display_index=0
     ),
     behavior_board=BehaviorBoard(
@@ -28,8 +28,8 @@ rig = IntrinsicsCalibrationRig(
     camera=SpinnakerCamera(
         serial_number="25224819",
         trigger_frequency=150,
-        exposure_time=3000,
-        binning=2
+        exposure_time=1000,
+        binning=4
     )
 )
 
