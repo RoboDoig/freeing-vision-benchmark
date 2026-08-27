@@ -6,6 +6,7 @@ import os
 
 from ucl_open.core import ExperimentSession
 import ucl_open_freeing_vision_benchmark.rig
+import ucl_open_freeing_vision_benchmark.intrinsics_rig
 import ucl_open_freeing_vision_benchmark.task
 
 SCHEMA_ROOT = Path("./src/DataSchemas/")
@@ -16,6 +17,7 @@ def main():
     models = [
         ucl_open_freeing_vision_benchmark.task.UclOpenFreeingVisionBenchmarkTaskLogic,
         ucl_open_freeing_vision_benchmark.rig.UclOpenFreeingVisionBenchmarkRig,
+        ucl_open_freeing_vision_benchmark.intrinsics_rig.IntrinsicsCalibrationRig,
         ExperimentSession
     ]
     model = pydantic.RootModel[Union[tuple(models)]]

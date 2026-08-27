@@ -119,6 +119,62 @@
       "title": "BehaviorBoard",
       "type": "object"
     },
+    "CalibratedSpinnakerCamera": {
+      "properties": {
+        "triggerFrequency": {
+          "default": 50,
+          "description": "The frequency at which the camera is triggered (in Hz).",
+          "minimum": 1,
+          "title": "TriggerFrequency",
+          "type": "number"
+        },
+        "exposureTime": {
+          "default": 15000,
+          "description": "The exposure time for the camera (in microseconds).",
+          "minimum": 0,
+          "title": "ExposureTime",
+          "type": "number"
+        },
+        "serialNumber": {
+          "default": "00000",
+          "description": "The serial number of the camera.",
+          "title": "SerialNumber",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gain": {
+          "default": 1,
+          "description": "The camera gain.",
+          "minimum": 0,
+          "title": "Gain",
+          "type": "number"
+        },
+        "binning": {
+          "default": 1,
+          "description": "The binning setting for the camera.",
+          "minimum": 1,
+          "title": "Binning",
+          "type": "integer"
+        },
+        "discriminatorType": {
+          "const": "CalibratedSpinnakerCamera",
+          "default": "CalibratedSpinnakerCamera",
+          "title": "DiscriminatorType",
+          "type": "string"
+        },
+        "calibrationFile": {
+          "title": "CalibrationFile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "calibrationFile"
+      ],
+      "title": "CalibratedSpinnakerCamera",
+      "type": "object"
+    },
     "CameraTriggerController": {
       "description": "Represents a CameraTriggerController module on a BehaviorBoard device.",
       "properties": {
@@ -277,6 +333,39 @@
         "sessionId"
       ],
       "title": "ExperimentSession",
+      "type": "object"
+    },
+    "IntrinsicsCalibrationRig": {
+      "properties": {
+        "rootPath": {
+          "description": "The root path on which to log all data.",
+          "title": "RootPath",
+          "type": "string"
+        },
+        "version": {
+          "const": "0.0.0-rc1",
+          "default": "0.0.0-rc1",
+          "title": "Version",
+          "type": "string"
+        },
+        "screen": {
+          "$ref": "#/$defs/Screen"
+        },
+        "behaviorBoard": {
+          "$ref": "#/$defs/BehaviorBoard"
+        },
+        "camera": {
+          "$ref": "#/$defs/SpinnakerCamera",
+          "title": "Camera"
+        }
+      },
+      "required": [
+        "rootPath",
+        "screen",
+        "behaviorBoard",
+        "camera"
+      ],
+      "title": "IntrinsicsCalibrationRig",
       "type": "object"
     },
     "PulseController": {
@@ -503,11 +592,11 @@
           "$ref": "#/$defs/BehaviorBoard"
         },
         "subjectCamera": {
-          "$ref": "#/$defs/SpinnakerCamera",
+          "$ref": "#/$defs/CalibratedSpinnakerCamera",
           "title": "SubjectCamera"
         },
         "trackCamera": {
-          "$ref": "#/$defs/SpinnakerCamera",
+          "$ref": "#/$defs/CalibratedSpinnakerCamera",
           "title": "TrackCamera"
         }
       },
@@ -628,8 +717,11 @@
       "$ref": "#/$defs/UclOpenFreeingVisionBenchmarkRig"
     },
     {
+      "$ref": "#/$defs/IntrinsicsCalibrationRig"
+    },
+    {
       "$ref": "#/$defs/ExperimentSession"
     }
   ],
-  "title": "RootModel[Union[UclOpenFreeingVisionBenchmarkTaskLogic, UclOpenFreeingVisionBenchmarkRig, ExperimentSession]]"
+  "title": "RootModel[Union[UclOpenFreeingVisionBenchmarkTaskLogic, UclOpenFreeingVisionBenchmarkRig, IntrinsicsCalibrationRig, ExperimentSession]]"
 }

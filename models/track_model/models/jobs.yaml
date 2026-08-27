@@ -1,0 +1,12 @@
+inference:
+- data_path: labels.v001.slp
+  models:
+  - models/track_cam.single_instance.n=18
+  only_suggested_frames: false
+  output_path: labels.v001.slp.predictions.slp
+  tracking: {}
+  type: video
+training:
+- cfg: single_instance.yaml
+  run_path: models/track_cam.single_instance.n=18
+  train_labels: labels.v001.slp

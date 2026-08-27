@@ -1,0 +1,32 @@
+{
+  "anchor_part": null,
+  "backbone": "unet",
+  "checkpoint_path": "best.ckpt",
+  "class_names": null,
+  "crop_size": null,
+  "edge_inds": [],
+  "export_format": "onnx",
+  "export_timestamp": "2026-08-19T15:52:58.048073",
+  "input_channels": 1,
+  "input_dtype": "uint8",
+  "input_scale": 1.0,
+  "max_batch_size": 8,
+  "max_instances": null,
+  "max_peaks_per_node": null,
+  "model_name": "",
+  "model_type": "single_instance",
+  "n_classes": null,
+  "n_edges": 0,
+  "n_nodes": 2,
+  "node_names": [
+    "sub_left",
+    "sub_right"
+  ],
+  "normalization": "0_to_1",
+  "output_stride": 2,
+  "peak_threshold": 0.2,
+  "precision": "fp32",
+  "sleap_nn_version": "0.3.3",
+  "training_config_embedded": true,
+  "training_config_hash": "86d82d04eabcd8b5bc3bf742d0e50e5df389673f1417d9083907a8be3eaeda0c"
+}
