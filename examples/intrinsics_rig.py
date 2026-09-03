@@ -19,17 +19,17 @@ rig = IntrinsicsCalibrationRig(
         display_index=0
     ),
     behavior_board=BehaviorBoard(
-        port_name="COM3",
+        port_name="COM4",
         camera_trigger_controller=CameraTriggerController(
-            trigger0_frequency=150,
-            trigger1_frequency=150
+            trigger0_frequency=100,
+            trigger1_frequency=100
         )
     ),
     camera=SpinnakerCamera(
-        serial_number="25224819",
-        trigger_frequency=150,
-        exposure_time=1000,
-        binning=4
+        serial_number="25170682",
+        trigger_frequency=100,
+        exposure_time=2000,
+        binning=1
     )
 )
 

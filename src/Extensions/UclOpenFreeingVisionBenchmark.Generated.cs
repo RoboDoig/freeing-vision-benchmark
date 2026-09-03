@@ -23,6 +23,8 @@ namespace UclOpenFreeingVisionBenchmark
     
         private double _screenDiagonal;
     
+        private Vector3 _offset;
+    
         private double _scaleFactor;
     
         private double _viewWidth;
@@ -39,6 +41,7 @@ namespace UclOpenFreeingVisionBenchmark
             _aspectWidth = 16;
             _aspectHeight = 9;
             _screenDiagonal = 0.684784D;
+            _offset = new Vector3();
         }
     
         protected ArucoCalibration(ArucoCalibration other)
@@ -47,6 +50,7 @@ namespace UclOpenFreeingVisionBenchmark
             _aspectWidth = other._aspectWidth;
             _aspectHeight = other._aspectHeight;
             _screenDiagonal = other._screenDiagonal;
+            _offset = other._offset;
             _scaleFactor = other._scaleFactor;
             _viewWidth = other._viewWidth;
             _viewHeight = other._viewHeight;
@@ -123,6 +127,25 @@ namespace UclOpenFreeingVisionBenchmark
             set
             {
                 _screenDiagonal = value;
+            }
+        }
+    
+        /// <summary>
+        /// The offset of the aruco marker in meters
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("offset")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offset")]
+        [System.ComponentModel.DescriptionAttribute("The offset of the aruco marker in meters")]
+        public Vector3 Offset
+        {
+            get
+            {
+                return _offset;
+            }
+            set
+            {
+                _offset = value;
             }
         }
     
@@ -212,6 +235,7 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("AspectWidth = " + _aspectWidth + ", ");
             stringBuilder.Append("AspectHeight = " + _aspectHeight + ", ");
             stringBuilder.Append("ScreenDiagonal = " + _screenDiagonal + ", ");
+            stringBuilder.Append("Offset = " + _offset + ", ");
             stringBuilder.Append("ScaleFactor = " + _scaleFactor + ", ");
             stringBuilder.Append("ViewWidth = " + _viewWidth + ", ");
             stringBuilder.Append("ViewHeight = " + _viewHeight + ", ");
@@ -1994,7 +2018,9 @@ namespace UclOpenFreeingVisionBenchmark
     
         private Screen _screen;
     
-        private ArucoCalibration _arucoCalibration;
+        private ArucoCalibration _arucoCalibrationSubject;
+    
+        private ArucoCalibration _arucoCalibrationScreen;
     
         private double _trackShapeScale;
     
@@ -2008,7 +2034,8 @@ namespace UclOpenFreeingVisionBenchmark
         {
             _version = "0.0.0-rc1";
             _screen = new Screen();
-            _arucoCalibration = new ArucoCalibration();
+            _arucoCalibrationSubject = new ArucoCalibration();
+            _arucoCalibrationScreen = new ArucoCalibration();
             _behaviorBoard = new BehaviorBoard();
             _subjectCamera = new CalibratedSpinnakerCamera();
             _trackCamera = new CalibratedSpinnakerCamera();
@@ -2019,7 +2046,8 @@ namespace UclOpenFreeingVisionBenchmark
             _rootPath = other._rootPath;
             _version = other._version;
             _screen = other._screen;
-            _arucoCalibration = other._arucoCalibration;
+            _arucoCalibrationSubject = other._arucoCalibrationSubject;
+            _arucoCalibrationScreen = other._arucoCalibrationScreen;
             _trackShapeScale = other._trackShapeScale;
             _behaviorBoard = other._behaviorBoard;
             _subjectCamera = other._subjectCamera;
@@ -2074,17 +2102,32 @@ namespace UclOpenFreeingVisionBenchmark
         }
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("arucoCalibration", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoCalibration")]
-        public ArucoCalibration ArucoCalibration
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoCalibrationSubject", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoCalibrationSubject")]
+        public ArucoCalibration ArucoCalibrationSubject
         {
             get
             {
-                return _arucoCalibration;
+                return _arucoCalibrationSubject;
             }
             set
             {
-                _arucoCalibration = value;
+                _arucoCalibrationSubject = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("arucoCalibrationScreen", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="arucoCalibrationScreen")]
+        public ArucoCalibration ArucoCalibrationScreen
+        {
+            get
+            {
+                return _arucoCalibrationScreen;
+            }
+            set
+            {
+                _arucoCalibrationScreen = value;
             }
         }
     
@@ -2162,7 +2205,8 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("RootPath = " + _rootPath + ", ");
             stringBuilder.Append("Version = " + _version + ", ");
             stringBuilder.Append("Screen = " + _screen + ", ");
-            stringBuilder.Append("ArucoCalibration = " + _arucoCalibration + ", ");
+            stringBuilder.Append("ArucoCalibrationSubject = " + _arucoCalibrationSubject + ", ");
+            stringBuilder.Append("ArucoCalibrationScreen = " + _arucoCalibrationScreen + ", ");
             stringBuilder.Append("TrackShapeScale = " + _trackShapeScale + ", ");
             stringBuilder.Append("BehaviorBoard = " + _behaviorBoard + ", ");
             stringBuilder.Append("SubjectCamera = " + _subjectCamera + ", ");

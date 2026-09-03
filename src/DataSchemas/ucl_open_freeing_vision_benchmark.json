@@ -26,6 +26,16 @@
           "title": "ScreenDiagonal",
           "type": "number"
         },
+        "offset": {
+          "$ref": "#/$defs/Vector3",
+          "default": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "description": "The offset of the aruco marker in meters",
+          "title": "Offset"
+        },
         "scaleFactor": {
           "readOnly": true,
           "title": "ScaleFactor",
@@ -581,8 +591,13 @@
         "screen": {
           "$ref": "#/$defs/Screen"
         },
-        "arucoCalibration": {
-          "$ref": "#/$defs/ArucoCalibration"
+        "arucoCalibrationSubject": {
+          "$ref": "#/$defs/ArucoCalibration",
+          "title": "ArucoCalibrationSubject"
+        },
+        "arucoCalibrationScreen": {
+          "$ref": "#/$defs/ArucoCalibration",
+          "title": "ArucoCalibrationScreen"
         },
         "trackShapeScale": {
           "title": "TrackShapeScale",
@@ -603,7 +618,8 @@
       "required": [
         "rootPath",
         "screen",
-        "arucoCalibration",
+        "arucoCalibrationSubject",
+        "arucoCalibrationScreen",
         "trackShapeScale",
         "behaviorBoard",
         "subjectCamera",

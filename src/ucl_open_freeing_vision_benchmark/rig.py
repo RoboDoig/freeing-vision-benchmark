@@ -5,6 +5,7 @@ import math
 from swc.aeon.schema import BaseSchema
 
 from ucl_open.core.rig import Rig
+from ucl_open.core import Vector3
 from ucl_open.devices.behavior_board import BehaviorBoard
 from ucl_open.video import SpinnakerCamera
 from ucl_open.vision import Screen
@@ -19,6 +20,7 @@ class ArucoCalibration(BaseSchema):
     aspect_width: int = Field(description="The width of the display aspect ratio", default=16)
     aspect_height: int = Field(description="The height of the display aspect ration", default=9)
     screen_diagonal: float = Field(description="The diagonal of the viewable part of the screen/monitor in meters", default=0.684784)
+    offset: Vector3 = Field(description="The offset of the aruco marker in meters", default=Vector3(x=0.0, y=0.0, z=0.0))
     
     @computed_field
     @property
@@ -48,7 +50,8 @@ class ArucoCalibration(BaseSchema):
 class UclOpenFreeingVisionBenchmarkRig(Rig):
     version: Literal[__semver__] = __semver__
     screen: Screen
-    aruco_calibration: ArucoCalibration
+    aruco_calibration_subject: ArucoCalibration
+    aruco_calibration_screen: ArucoCalibration
     track_shape_scale: float
     behavior_board: BehaviorBoard
     subject_camera: CalibratedSpinnakerCamera

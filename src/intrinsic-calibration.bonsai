@@ -10,7 +10,6 @@
                  xmlns:beh="clr-namespace:Harp.Behavior;assembly=Harp.Behavior"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:p2="clr-namespace:UclOpen.Video;assembly=UclOpen.Video"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
@@ -29,7 +28,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>C:\Users\saleem_lab\Documents\repos\freeing-vision-benchmark\local\IntrinsicsCalibrationRig.json</io:Path>
+                <io:Path>C:\Users\Saleem Lab\source\repos\freeing-vision-benchmark\local\IntrinsicsCalibrationRig.json</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
@@ -70,7 +69,7 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Fullscreen</gl:WindowState>
-          <gl:DisplayDevice>First</gl:DisplayDevice>
+          <gl:DisplayDevice>Second</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -98,6 +97,12 @@
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="res:LoadResources" />
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Camera0TriggerEvents</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Camera1TriggerEvents</Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
@@ -131,7 +136,7 @@
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="UclOpen.Devices:BehaviorBoard.BehaviorBoard.bonsai">
               <CommandsSubjectName>BehaviorCommands</CommandsSubjectName>
-              <PortName>COM3</PortName>
+              <PortName>COM4</PortName>
               <DumpRegisters>true</DumpRegisters>
               <Heartbeat>Disabled</Heartbeat>
               <EventsSubjectName>BehaviorEvents</EventsSubjectName>
@@ -191,7 +196,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
-                      <Value>150</Value>
+                      <Value>100</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -205,7 +210,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreateCamera0FrequencyPayload">
-                      <beh:Camera0Frequency>150</beh:Camera0Frequency>
+                      <beh:Camera0Frequency>100</beh:Camera0Frequency>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -218,7 +223,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
-                      <Value>150</Value>
+                      <Value>100</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -232,7 +237,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreateCamera1FrequencyPayload">
-                      <beh:Camera1Frequency>150</beh:Camera1Frequency>
+                      <beh:Camera1Frequency>100</beh:Camera1Frequency>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -381,30 +386,11 @@
           <Property Name="SerialNumber" />
         </PropertyMappings>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Camera.ExposureTime</Selector>
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="ExposureTime" />
-        </PropertyMappings>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Camera.Binning</Selector>
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="Binning" />
-        </PropertyMappings>
-      </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p2:TriggeredSpinnaker">
+        <Combinator xsi:type="spk:SpinnakerCapture">
           <spk:Index xsi:nil="true" />
           <spk:SerialNumber>25170682</spk:SerialNumber>
           <spk:ColorProcessing>Default</spk:ColorProcessing>
-          <p2:ExposureTime>3000</p2:ExposureTime>
-          <p2:Gain>0</p2:Gain>
-          <p2:Binning>2</p2:Binning>
         </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
@@ -566,24 +552,20 @@
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
-      <Edge From="10" To="11" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
-      <Edge From="13" To="16" Label="Source1" />
-      <Edge From="13" To="18" Label="Source1" />
-      <Edge From="14" To="15" Label="Source1" />
-      <Edge From="15" To="20" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="20" Label="Source2" />
+      <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="20" Label="Source3" />
-      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="25" Label="Source1" />
       <Edge From="21" To="22" Label="Source1" />
-      <Edge From="22" To="27" Label="Source1" />
-      <Edge From="23" To="24" Label="Source1" />
-      <Edge From="24" To="26" Label="Source1" />
-      <Edge From="25" To="26" Label="Source2" />
-      <Edge From="26" To="27" Label="Source2" />
+      <Edge From="22" To="24" Label="Source1" />
+      <Edge From="23" To="24" Label="Source2" />
+      <Edge From="24" To="25" Label="Source2" />
+      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
       <Edge From="29" To="30" Label="Source1" />
@@ -593,29 +575,27 @@
       <Edge From="33" To="34" Label="Source1" />
       <Edge From="34" To="35" Label="Source1" />
       <Edge From="35" To="36" Label="Source1" />
-      <Edge From="36" To="37" Label="Source1" />
-      <Edge From="37" To="38" Label="Source1" />
-      <Edge From="37" To="39" Label="Source1" />
-      <Edge From="38" To="44" Label="Source1" />
-      <Edge From="39" To="42" Label="Source1" />
+      <Edge From="35" To="37" Label="Source1" />
+      <Edge From="36" To="42" Label="Source1" />
+      <Edge From="37" To="40" Label="Source1" />
+      <Edge From="38" To="39" Label="Source1" />
+      <Edge From="39" To="40" Label="Source2" />
       <Edge From="40" To="41" Label="Source1" />
       <Edge From="41" To="42" Label="Source2" />
       <Edge From="42" To="43" Label="Source1" />
-      <Edge From="43" To="44" Label="Source2" />
-      <Edge From="44" To="45" Label="Source1" />
+      <Edge From="43" To="44" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
-      <Edge From="47" To="48" Label="Source1" />
-      <Edge From="47" To="52" Label="Source1" />
+      <Edge From="45" To="50" Label="Source1" />
+      <Edge From="46" To="47" Label="Source1" />
       <Edge From="48" To="49" Label="Source1" />
-      <Edge From="50" To="51" Label="Source1" />
-      <Edge From="51" To="53" Label="Source1" />
-      <Edge From="52" To="53" Label="Source2" />
+      <Edge From="49" To="51" Label="Source1" />
+      <Edge From="50" To="51" Label="Source2" />
+      <Edge From="51" To="52" Label="Source1" />
+      <Edge From="52" To="57" Label="Source1" />
       <Edge From="53" To="54" Label="Source1" />
-      <Edge From="54" To="59" Label="Source1" />
+      <Edge From="54" To="57" Label="Source2" />
       <Edge From="55" To="56" Label="Source1" />
-      <Edge From="56" To="59" Label="Source2" />
-      <Edge From="57" To="58" Label="Source1" />
-      <Edge From="58" To="59" Label="Source3" />
+      <Edge From="56" To="57" Label="Source3" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

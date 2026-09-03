@@ -8,6 +8,7 @@ from ucl_open_freeing_vision_benchmark.rig import (
 from ucl_open.devices.behavior_board import BehaviorBoard, CameraTriggerController
 from ucl_open.video import SpinnakerCamera
 from ucl_open.vision import Screen
+from ucl_open.core import Vector3
 
 rig = UclOpenFreeingVisionBenchmarkRig(
     root_path="../temp_data",
@@ -18,7 +19,8 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         target_update_frequency=360,
         display_index=1
     ),
-    aruco_calibration=ArucoCalibration(),
+    aruco_calibration_screen=ArucoCalibration(aruco_size=0.05, offset=Vector3(x=1.5, y=-0.8, z=0.0)),
+    aruco_calibration_subject=ArucoCalibration(aruco_size=0.02),
     track_shape_scale=0.35,
     behavior_board=BehaviorBoard(
         port_name="COM3",
@@ -35,7 +37,7 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         binning=2
     ),
     track_camera=CalibratedSpinnakerCamera(
-        calibration_file="./intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml",
+        calibration_file="./intrinsics/camera_25170682/2026-8-27/2026-8-27T17-21-7_intrinsics.yml",
         serial_number="25170682",
         trigger_frequency=150,
         exposure_time=1000,
