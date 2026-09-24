@@ -56,3 +56,10 @@ class UclOpenFreeingVisionBenchmarkRig(Rig):
     behavior_board: BehaviorBoard
     subject_camera: CalibratedSpinnakerCamera
     track_camera: CalibratedSpinnakerCamera
+
+class UclOpenFreeingVisionBenchmarkRigDebugModel(BaseSchema):
+    version: Literal[__semver__] = __semver__
+    screen: Screen
+    aruco_1: ArucoCalibration
+    aruco_2: ArucoCalibration
+    intrinsics_calibration: str

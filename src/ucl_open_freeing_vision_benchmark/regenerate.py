@@ -18,6 +18,7 @@ def main():
         ucl_open_freeing_vision_benchmark.task.UclOpenFreeingVisionBenchmarkTaskLogic,
         ucl_open_freeing_vision_benchmark.rig.UclOpenFreeingVisionBenchmarkRig,
         ucl_open_freeing_vision_benchmark.intrinsics_rig.IntrinsicsCalibrationRig,
+        ucl_open_freeing_vision_benchmark.rig.UclOpenFreeingVisionBenchmarkRigDebugModel,
         ExperimentSession
     ]
     model = pydantic.RootModel[Union[tuple(models)]]

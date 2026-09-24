@@ -628,6 +628,39 @@
       "title": "UclOpenFreeingVisionBenchmarkRig",
       "type": "object"
     },
+    "UclOpenFreeingVisionBenchmarkRigDebugModel": {
+      "properties": {
+        "version": {
+          "const": "0.0.0-rc1",
+          "default": "0.0.0-rc1",
+          "title": "Version",
+          "type": "string"
+        },
+        "screen": {
+          "$ref": "#/$defs/Screen"
+        },
+        "aruco1": {
+          "$ref": "#/$defs/ArucoCalibration",
+          "title": "Aruco1"
+        },
+        "aruco2": {
+          "$ref": "#/$defs/ArucoCalibration",
+          "title": "Aruco2"
+        },
+        "intrinsicsCalibration": {
+          "title": "IntrinsicsCalibration",
+          "type": "string"
+        }
+      },
+      "required": [
+        "screen",
+        "aruco1",
+        "aruco2",
+        "intrinsicsCalibration"
+      ],
+      "title": "UclOpenFreeingVisionBenchmarkRigDebugModel",
+      "type": "object"
+    },
     "UclOpenFreeingVisionBenchmarkTaskLogic": {
       "properties": {
         "version": {
@@ -736,8 +769,11 @@
       "$ref": "#/$defs/IntrinsicsCalibrationRig"
     },
     {
+      "$ref": "#/$defs/UclOpenFreeingVisionBenchmarkRigDebugModel"
+    },
+    {
       "$ref": "#/$defs/ExperimentSession"
     }
   ],
-  "title": "RootModel[Union[UclOpenFreeingVisionBenchmarkTaskLogic, UclOpenFreeingVisionBenchmarkRig, IntrinsicsCalibrationRig, ExperimentSession]]"
+  "title": "RootModel[Union[UclOpenFreeingVisionBenchmarkTaskLogic, UclOpenFreeingVisionBenchmarkRig, IntrinsicsCalibrationRig, UclOpenFreeingVisionBenchmarkRigDebugModel, ExperimentSession]]"
 }
