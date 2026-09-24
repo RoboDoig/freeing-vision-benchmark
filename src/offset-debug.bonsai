@@ -262,7 +262,7 @@
               <Name>RigSchema</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>Aruco1.Offset.X</Selector>
+              <Selector>Aruco1.OffsetX</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -273,7 +273,7 @@
               <Name>RigSchema</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>Aruco1.Offset.Z</Selector>
+              <Selector>Aruco1.OffsetY</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -284,8 +284,66 @@
               <TextureName>aruco-2</TextureName>
               <ExtentX>0.4642707</ExtentX>
               <ExtentY>0.4642707</ExtentY>
-              <LocationX>0.15</LocationX>
-              <LocationY>0</LocationY>
+              <LocationX>0.4642707</LocationX>
+              <LocationY>0.4642707</LocationY>
+              <Layer>0</Layer>
+              <Angle>0</Angle>
+              <ScaleX>1</ScaleX>
+              <ScaleY>1</ScaleY>
+              <ShiftX>0</ShiftX>
+              <ShiftY>0</ShiftY>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PostDrawing</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RigSchema</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Aruco2.ExtentY</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="ExtentX" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Aruco2.ExtentY</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="ExtentY" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RigSchema</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Aruco2.OffsetX</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="LocationX" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RigSchema</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Aruco2.OffsetY</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="LocationY" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
+              <TextureName>aruco-1</TextureName>
+              <ExtentX>0.4642707</ExtentX>
+              <ExtentY>0.4642707</ExtentY>
+              <LocationX>-0.4642707</LocationX>
+              <LocationY>-0.4642707</LocationY>
               <Layer>0</Layer>
               <Angle>0</Angle>
               <ScaleX>1</ScaleX>
@@ -339,7 +397,21 @@
             <Edge From="26" To="27" Label="Source1" />
             <Edge From="27" To="28" Label="Source5" />
             <Edge From="29" To="30" Label="Source1" />
-            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="30" To="42" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="31" To="34" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="42" Label="Source2" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="42" Label="Source3" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="38" To="42" Label="Source4" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="41" To="42" Label="Source5" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>

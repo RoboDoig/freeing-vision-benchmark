@@ -19,8 +19,8 @@ rig = UclOpenFreeingVisionBenchmarkRigDebugModel(
         target_update_frequency=360,
         display_index=1
     ),
-    aruco_1=ArucoCalibration(aruco_size=0.05, screen_diagonal=0.4064, offset=Vector3(x=0.15, y=0, z=0.0), aspect_width=16, aspect_height=10),
-    aruco_2=ArucoCalibration(aruco_size=0.05, screen_diagonal=0.4064, offset=Vector3(x=-0.15, y=0.0, z=0.0), aspect_width=16, aspect_height=10),
+    aruco_1=ArucoCalibration(aruco_size=0.05, screen_diagonal=0.4064, offset=Vector3(x=0.10, y=0.05, z=0.0), aspect_width=16, aspect_height=10),
+    aruco_2=ArucoCalibration(aruco_size=0.05, screen_diagonal=0.4064, offset=Vector3(x=-0.05, y=-0.05, z=0.0), aspect_width=16, aspect_height=10),
     intrinsics_calibration="./intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
 )
 

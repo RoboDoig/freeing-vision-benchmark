@@ -35,6 +35,10 @@ namespace UclOpenFreeingVisionBenchmark
     
         private double _extentY;
     
+        private double _offsetX;
+    
+        private double _offsetY;
+    
         public ArucoCalibration()
         {
             _arucoSize = 0.1D;
@@ -56,6 +60,8 @@ namespace UclOpenFreeingVisionBenchmark
             _viewHeight = other._viewHeight;
             _extentX = other._extentX;
             _extentY = other._extentY;
+            _offsetX = other._offsetX;
+            _offsetY = other._offsetY;
         }
     
         /// <summary>
@@ -219,6 +225,34 @@ namespace UclOpenFreeingVisionBenchmark
             }
         }
     
+        [Newtonsoft.Json.JsonPropertyAttribute("offsetX", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offsetX")]
+        public double OffsetX
+        {
+            get
+            {
+                return _offsetX;
+            }
+            set
+            {
+                _offsetX = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("offsetY", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offsetY")]
+        public double OffsetY
+        {
+            get
+            {
+                return _offsetY;
+            }
+            set
+            {
+                _offsetY = value;
+            }
+        }
+    
         public System.IObservable<ArucoCalibration> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ArucoCalibration(this)));
@@ -240,7 +274,9 @@ namespace UclOpenFreeingVisionBenchmark
             stringBuilder.Append("ViewWidth = " + _viewWidth + ", ");
             stringBuilder.Append("ViewHeight = " + _viewHeight + ", ");
             stringBuilder.Append("ExtentX = " + _extentX + ", ");
-            stringBuilder.Append("ExtentY = " + _extentY);
+            stringBuilder.Append("ExtentY = " + _extentY + ", ");
+            stringBuilder.Append("OffsetX = " + _offsetX + ", ");
+            stringBuilder.Append("OffsetY = " + _offsetY);
             return true;
         }
     

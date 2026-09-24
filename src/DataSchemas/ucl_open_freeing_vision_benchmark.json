@@ -60,6 +60,16 @@
           "readOnly": true,
           "title": "ExtentY",
           "type": "number"
+        },
+        "offsetX": {
+          "readOnly": true,
+          "title": "OffsetX",
+          "type": "number"
+        },
+        "offsetY": {
+          "readOnly": true,
+          "title": "OffsetY",
+          "type": "number"
         }
       },
       "required": [
@@ -67,7 +77,9 @@
         "viewWidth",
         "viewHeight",
         "extentX",
-        "extentY"
+        "extentY",
+        "offsetX",
+        "offsetY"
       ],
       "title": "ArucoCalibration",
       "type": "object"

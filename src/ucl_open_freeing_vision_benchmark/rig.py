@@ -47,6 +47,16 @@ class ArucoCalibration(BaseSchema):
     def extent_y(self) -> float:
         return self.aruco_size / self.view_height * 2
 
+    @computed_field
+    @property
+    def offset_x(self) -> float:
+        return self.offset.x / self.view_height * 2
+
+    @computed_field
+    @property
+    def offset_y(self) -> float:
+        return self.offset.y / self.view_height * 2
+
 class UclOpenFreeingVisionBenchmarkRig(Rig):
     version: Literal[__semver__] = __semver__
     screen: Screen
