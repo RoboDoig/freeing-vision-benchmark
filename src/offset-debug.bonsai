@@ -295,63 +295,91 @@
               <ShiftX>0</ShiftX>
               <ShiftY>0</ShiftY>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>PostDrawing</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>PostDrawing</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
-            <Expression xsi:type="SubscribeSubject">
-              <Name>RigSchema</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Aruco2.ExtentY</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>RigSchema</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="ExtentX" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Aruco2.ExtentY</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Aruco2.ExtentY</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="ExtentX" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="ExtentY" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Aruco2.ExtentY</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>RigSchema</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="ExtentY" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Aruco2.OffsetX</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>RigSchema</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="LocationX" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Aruco2.OffsetX</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>RigSchema</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="LocationX" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Aruco2.OffsetY</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>RigSchema</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="LocationY" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Aruco2.OffsetY</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
-              <TextureName>aruco-1</TextureName>
-              <ExtentX>0.4642707</ExtentX>
-              <ExtentY>0.4642707</ExtentY>
-              <LocationX>-0.557124853</LocationX>
-              <LocationY>0</LocationY>
-              <Layer>0</Layer>
-              <Angle>0</Angle>
-              <ScaleX>1</ScaleX>
-              <ScaleY>1</ScaleY>
-              <ShiftX>0</ShiftX>
-              <ShiftY>0</ShiftY>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="LocationY" />
+                </PropertyMappings>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
+                <TextureName>aruco-1</TextureName>
+                <ExtentX>0.4642707</ExtentX>
+                <ExtentY>0.4642707</ExtentY>
+                <LocationX>-0.557124853</LocationX>
+                <LocationY>0</LocationY>
+                <Layer>0</Layer>
+                <Angle>0</Angle>
+                <ScaleX>1</ScaleX>
+                <ScaleY>1</ScaleY>
+                <ShiftX>0</ShiftX>
+                <ShiftY>0</ShiftY>
+              </Builder>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>PostDrawing</Name>
