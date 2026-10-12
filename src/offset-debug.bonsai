@@ -6,6 +6,8 @@
                  xmlns:p1="clr-namespace:UclOpenFreeingVisionBenchmark;assembly=Extensions"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:aruco="clr-namespace:Bonsai.Aruco;assembly=Bonsai.Aruco"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -90,7 +92,7 @@
                 <gl:Location xsi:nil="true" />
                 <gl:WindowBorder>Resizable</gl:WindowBorder>
                 <gl:WindowState>Fullscreen</gl:WindowState>
-                <gl:DisplayDevice>Second</gl:DisplayDevice>
+                <gl:DisplayDevice>First</gl:DisplayDevice>
                 <gl:TargetRenderFrequency>360</gl:TargetRenderFrequency>
                 <gl:TargetUpdateFrequency>360</gl:TargetUpdateFrequency>
                 <gl:RenderState />
@@ -284,8 +286,8 @@
               <TextureName>aruco-2</TextureName>
               <ExtentX>0.4642707</ExtentX>
               <ExtentY>0.4642707</ExtentY>
-              <LocationX>0.4642707</LocationX>
-              <LocationY>0.4642707</LocationY>
+              <LocationX>0.557124853</LocationX>
+              <LocationY>0</LocationY>
               <Layer>0</Layer>
               <Angle>0</Angle>
               <ScaleX>1</ScaleX>
@@ -342,8 +344,8 @@
               <TextureName>aruco-1</TextureName>
               <ExtentX>0.4642707</ExtentX>
               <ExtentY>0.4642707</ExtentY>
-              <LocationX>-0.4642707</LocationX>
-              <LocationY>-0.4642707</LocationY>
+              <LocationX>-0.557124853</LocationX>
+              <LocationY>0</LocationY>
               <Layer>0</Layer>
               <Angle>0</Angle>
               <ScaleX>1</ScaleX>
@@ -415,9 +417,78 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CameraCapture">
+          <cv:Index>1</cv:Index>
+          <cv:CaptureProperties />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:DetectMarkers">
+          <aruco:CameraParameters>intrinsics\2026-10-12\2026-10-12T15-14-22_intrinsics.yml</aruco:CameraParameters>
+          <aruco:ThresholdMethod>AdaptiveThreshold</aruco:ThresholdMethod>
+          <aruco:Param1>6</aruco:Param1>
+          <aruco:Param2>5</aruco:Param2>
+          <aruco:MinSize>0.005</aruco:MinSize>
+          <aruco:MaxSize>0.5</aruco:MaxSize>
+          <aruco:CornerRefinement>Lines</aruco:CornerRefinement>
+          <aruco:MarkerSize>0.05</aruco:MarkerSize>
+          <aruco:SetYPerpendicular>false</aruco:SetYPerpendicular>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>1</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>Marker1</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>2</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>Marker2</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Marker1</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Marker2</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:CombineLatest" />
+      </Expression>
+      <Expression xsi:type="Subtract" />
+      <Expression xsi:type="MemberSelector">
+        <Selector>Row3.Xyz</Selector>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Length</Selector>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="5" To="9" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="12" To="14" Label="Source1" />
+      <Edge From="13" To="14" Label="Source2" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
