@@ -37,7 +37,7 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         binning=2
     ),
     track_camera=CalibratedSpinnakerCamera(
-        calibration_file="./intrinsics/camera_25170682/2026-8-27/2026-8-27T17-21-7_intrinsics.yml",
+        calibration_file="./intrinsics/camera_25170682/2026-10-15/2026-10-15T12-12-48_intrinsics.yml",
         serial_number="25170682",
         trigger_frequency=150,
         exposure_time=1000,
