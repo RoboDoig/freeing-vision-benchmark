@@ -2,13 +2,12 @@ import datetime
 import os
 import git
 
-from ucl_open.core.experiment import ExperimentSession
+from open_rigs.core.experiment import ExperimentSession
 
-# TODO - autofill experiment fields
 session = ExperimentSession(
     subject_id="Plimbo",
     session_id="001",
-    workflow="main.bonsai",
+    workflow="",
     commit=git.Repo(search_parent_directories=True).head.object.hexsha,
     repository_url=""
 )

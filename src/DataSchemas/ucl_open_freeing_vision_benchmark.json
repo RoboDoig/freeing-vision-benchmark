@@ -319,7 +319,7 @@
       "type": "object"
     },
     "ExperimentSession": {
-      "description": "The base class for creating ucl-open experiment models.",
+      "description": "The base class for creating open-rigs experiment models.",
       "properties": {
         "workflow": {
           "description": "Path to the workflow running the experiment.",

@@ -2,13 +2,12 @@ from typing import Literal, Dict
 from pydantic import Field, computed_field, BaseModel
 import math
 
+from open_rigs.core.rig import Rig
+from open_rigs.core import Vector3
+from open_rigs.devices.behavior_board import BehaviorBoard
+from open_rigs.video import SpinnakerCamera
+from open_rigs.vision import Screen
 from swc.aeon.schema import BaseSchema
-
-from ucl_open.core.rig import Rig
-from ucl_open.core import Vector3
-from ucl_open.devices.behavior_board import BehaviorBoard
-from ucl_open.video import SpinnakerCamera
-from ucl_open.vision import Screen
 
 from ucl_open_freeing_vision_benchmark import __semver__
 

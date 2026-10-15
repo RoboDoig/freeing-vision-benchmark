@@ -4,7 +4,7 @@ import json
 import pydantic
 import os
 
-from ucl_open.core import ExperimentSession
+from open_rigs.core import ExperimentSession
 import ucl_open_freeing_vision_benchmark.rig
 import ucl_open_freeing_vision_benchmark.intrinsics_rig
 import ucl_open_freeing_vision_benchmark.task

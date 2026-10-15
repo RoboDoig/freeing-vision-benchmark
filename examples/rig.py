@@ -5,10 +5,13 @@ from ucl_open_freeing_vision_benchmark.rig import (
     CalibratedSpinnakerCamera,
     ArucoCalibration
 )
-from ucl_open.devices.behavior_board import BehaviorBoard, CameraTriggerController
-from ucl_open.video import SpinnakerCamera
-from ucl_open.vision import Screen
-from ucl_open.core import Vector3
+from open_rigs.devices.behavior_board import BehaviorBoard, CameraTriggerController
+from open_rigs.video import SpinnakerCamera
+from open_rigs.vision import Screen
+from open_rigs.core import Vector3
+
+subject_camera_trigger_frequency = 150
+track_camera_trigger_frequency = 150
 
 rig = UclOpenFreeingVisionBenchmarkRig(
     root_path="../temp_data",
@@ -25,22 +28,22 @@ rig = UclOpenFreeingVisionBenchmarkRig(
     behavior_board=BehaviorBoard(
         port_name="COM4",
         camera_trigger_controller=CameraTriggerController(
-            trigger0_frequency=150,
-            trigger1_frequency=150
+            trigger0_frequency=subject_camera_trigger_frequency,
+            trigger1_frequency=track_camera_trigger_frequency
         )
     ),
     subject_camera=CalibratedSpinnakerCamera(
         calibration_file="./intrinsics/camera_25224819/2026-7-16/2026-7-16T15-11-48_intrinsics.yml",
         serial_number="25224819",
-        trigger_frequency=150,
-        exposure_time=2000,
+        trigger_frequency=subject_camera_trigger_frequency,
+        exposure_time=5000,
         binning=2
     ),
     track_camera=CalibratedSpinnakerCamera(
         calibration_file="./intrinsics/camera_25170682/2026-10-15/2026-10-15T12-12-48_intrinsics.yml",
         serial_number="25170682",
-        trigger_frequency=150,
-        exposure_time=1000,
+        trigger_frequency=track_camera_trigger_frequency,
+        exposure_time=12000,
         binning=2
     ),
 )
