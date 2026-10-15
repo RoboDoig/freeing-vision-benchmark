@@ -19,11 +19,11 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         target_update_frequency=360,
         display_index=1
     ),
-    aruco_calibration_screen=ArucoCalibration(aruco_size=0.05, screen_diagonal=0.4064, offset=Vector3(x=1.5, y=-0.8, z=0.0)),
-    aruco_calibration_subject=ArucoCalibration(aruco_size=0.02, screen_diagonal=0.4064),
+    aruco_calibration_screen=ArucoCalibration(aruco_size=0.05, offset=Vector3(x=0.16, y=-0.08, z=0.0)),
+    aruco_calibration_subject=ArucoCalibration(aruco_size=0.02),
     track_shape_scale=0.35,
     behavior_board=BehaviorBoard(
-        port_name="COM3",
+        port_name="COM4",
         camera_trigger_controller=CameraTriggerController(
             trigger0_frequency=150,
             trigger1_frequency=150

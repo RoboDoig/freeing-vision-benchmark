@@ -273,7 +273,7 @@
                     <Name>RigSchema</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>ArucoCalibration.ViewWidth</Selector>
+                    <Selector>ArucoCalibrationSubject.ViewWidth</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -281,7 +281,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>ArucoCalibration.ViewHeight</Selector>
+                    <Selector>ArucoCalibrationSubject.ViewHeight</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -476,7 +476,7 @@
                     <Name>RigSchema</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>ArucoCalibration.ExtentY</Selector>
+                    <Selector>ArucoCalibrationSubject.ExtentY</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -484,7 +484,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>ArucoCalibration.ExtentY</Selector>
+                    <Selector>ArucoCalibrationSubject.ExtentY</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -492,7 +492,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>ArucoCalibration.ExtentY</Selector>
+                    <Selector>ArucoCalibrationSubject.ExtentY</Selector>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ArucoOffset</Name>
@@ -508,9 +508,9 @@
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                     <TextureName>aruco-2</TextureName>
-                    <ExtentX>0.5957291</ExtentX>
-                    <ExtentY>0.5957291</ExtentY>
-                    <LocationX>0.5957291</LocationX>
+                    <ExtentX>0.119145826</ExtentX>
+                    <ExtentY>0.119145826</ExtentY>
+                    <LocationX>0.119145826</LocationX>
                     <LocationY>0</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
@@ -598,17 +598,21 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RigSchema</Name>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>BehaviorBoard.PortName</Selector>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MemberSelector">
+                      <Selector>BehaviorBoard.PortName</Selector>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="PortName" />
-                    </PropertyMappings>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="PortName" />
+                      </PropertyMappings>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="UclOpen.Devices:BehaviorBoard.BehaviorBoard.bonsai">
                     <CommandsSubjectName>BehaviorCommands</CommandsSubjectName>
-                    <PortName>COM3</PortName>
+                    <PortName>COM4</PortName>
                     <DumpRegisters>true</DumpRegisters>
                     <Heartbeat>Disabled</Heartbeat>
                     <EventsSubjectName>BehaviorEvents</EventsSubjectName>
@@ -973,7 +977,7 @@
               <Name>RigSchema</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>ArucoCalibration.ArucoSize</Selector>
+              <Selector>ArucoCalibrationSubject.ArucoSize</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -1000,7 +1004,7 @@
                 <aruco:MinSize>0.04</aruco:MinSize>
                 <aruco:MaxSize>1</aruco:MaxSize>
                 <aruco:CornerRefinement>Lines</aruco:CornerRefinement>
-                <aruco:MarkerSize>0.1</aruco:MarkerSize>
+                <aruco:MarkerSize>0.02</aruco:MarkerSize>
                 <aruco:SetYPerpendicular>false</aruco:SetYPerpendicular>
               </Combinator>
             </Expression>
@@ -1267,7 +1271,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-24T14-09-55\ArucoDetection\ArucoDetection.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-10-15T10-21-03\ArucoDetection\ArucoDetection.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -1412,7 +1416,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-24T14-09-55\SubjectIntrinsics\SubjectIntrinsics.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-10-15T10-21-03\SubjectIntrinsics\SubjectIntrinsics.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -1444,7 +1448,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:LoadIntrinsics">
-                <cv:FileName>./intrinsics/camera_25170682/2026-7-16/2026-7-16T12-45-13_intrinsics.yml</cv:FileName>
+                <cv:FileName>./intrinsics/camera_25170682/2026-8-27/2026-8-27T17-21-7_intrinsics.yml</cv:FileName>
               </Combinator>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -1541,7 +1545,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-24T14-09-55\TrackIntrinsics\TrackIntrinsics.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-10-15T10-21-03\TrackIntrinsics\TrackIntrinsics.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -2164,7 +2168,7 @@
                     <Property Name="Selector" />
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-07-24T14-09-55\RenderFrame\RenderFrame.csv</io:FileName>
+                    <io:FileName>../temp_data\sub-Tracking\ses-001_date-2026-10-15T10-21-03\RenderFrame\RenderFrame.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
