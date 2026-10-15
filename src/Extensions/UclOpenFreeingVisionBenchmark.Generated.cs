@@ -1023,10 +1023,10 @@ namespace UclOpenFreeingVisionBenchmark
 
 
     /// <summary>
-    /// The base class for creating ucl-open experiment models.
+    /// The base class for creating open-rigs experiment models.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
-    [System.ComponentModel.DescriptionAttribute("The base class for creating ucl-open experiment models.")]
+    [System.ComponentModel.DescriptionAttribute("The base class for creating open-rigs experiment models.")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class ExperimentSession

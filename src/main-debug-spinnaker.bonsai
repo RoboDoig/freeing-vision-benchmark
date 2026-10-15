@@ -263,14 +263,14 @@
               <Width>0.596841</Width>
               <Height>0.335723042</Height>
               <Rotation>
-                <X>-1.4536389588110776</X>
-                <Y>-159.24132525323839</Y>
-                <Z>2.5612874281391664</Z>
+                <X>8.52030496598042</X>
+                <Y>-160.16464388561906</Y>
+                <Z>11.40530088553929</Z>
               </Rotation>
               <Translation>
-                <X>0.046522341668605804</X>
-                <Y>0.065905749797821045</Y>
-                <Z>0.17007449269294739</Z>
+                <X>0.03156629204750061</X>
+                <Y>0.081795729696750641</Y>
+                <Z>0.14028145372867584</Z>
               </Translation>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
@@ -455,12 +455,34 @@
                 <Property Name="PortName" />
               </PropertyMappings>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="UclOpen.Devices:BehaviorBoard.BehaviorBoard.bonsai">
+            <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Devices:BehaviorBoard.BehaviorBoard.bonsai">
               <CommandsSubjectName>BehaviorCommands</CommandsSubjectName>
               <PortName>COM4</PortName>
               <DumpRegisters>true</DumpRegisters>
               <Heartbeat>Disabled</Heartbeat>
               <EventsSubjectName>BehaviorEvents</EventsSubjectName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RigSchema</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>BehaviorBoard.CameraTriggerController.Trigger0Frequency</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Trigger0Frequency" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RigSchema</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>BehaviorBoard.CameraTriggerController.Trigger1Frequency</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Trigger1Frequency" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>CameraTriggerController</Name>
@@ -501,7 +523,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
-                      <Value>50</Value>
+                      <Value>150</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -515,7 +537,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreateCamera0FrequencyPayload">
-                      <beh:Camera0Frequency>50</beh:Camera0Frequency>
+                      <beh:Camera0Frequency>150</beh:Camera0Frequency>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -528,7 +550,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
-                      <Value>50</Value>
+                      <Value>150</Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -542,7 +564,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreateCamera1FrequencyPayload">
-                      <beh:Camera1Frequency>50</beh:Camera1Frequency>
+                      <beh:Camera1Frequency>150</beh:Camera1Frequency>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -671,7 +693,15 @@
                 <Property Name="Binning" />
               </PropertyMappings>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="UclOpen.Devices:TriggeredSpinnaker.bonsai">
+            <Expression xsi:type="MemberSelector">
+              <Selector>SubjectCamera.ExposureTime</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="ExposureTime" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Devices:TriggeredSpinnaker.bonsai">
               <ExposureTime>5000</ExposureTime>
               <Gain>0</Gain>
               <Binning>2</Binning>
@@ -699,8 +729,16 @@
                 <Property Name="Binning" />
               </PropertyMappings>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="UclOpen.Devices:TriggeredSpinnaker.bonsai">
-              <ExposureTime>10000</ExposureTime>
+            <Expression xsi:type="MemberSelector">
+              <Selector>TrackCamera.ExposureTime</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="ExposureTime" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Devices:TriggeredSpinnaker.bonsai">
+              <ExposureTime>12000</ExposureTime>
               <Gain>0</Gain>
               <Binning>2</Binning>
               <SerialNumber>25170682</SerialNumber>
@@ -713,20 +751,32 @@
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="6" To="10" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="8" To="11" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="13" Label="Source1" />
+            <Edge From="9" To="10" Label="Source2" />
             <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source2" />
+            <Edge From="12" To="13" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="14" To="17" Label="Source1" />
+            <Edge From="14" To="19" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="19" Label="Source1" />
+            <Edge From="16" To="21" Label="Source1" />
             <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source2" />
+            <Edge From="18" To="21" Label="Source2" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="21" Label="Source3" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="22" To="25" Label="Source1" />
+            <Edge From="22" To="27" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="29" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="29" Label="Source2" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source3" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1082,9 +1132,26 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="SubjectId" />
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="SessionId" />
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Path" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Logging:LogController.bonsai">
+        <SubjectId>Algernon</SubjectId>
+        <SessionId>001</SessionId>
+        <Path>D:\LocalData</Path>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
+      <Edge From="6" To="9" Label="Source1" />
+      <Edge From="7" To="9" Label="Source2" />
+      <Edge From="8" To="9" Label="Source3" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
