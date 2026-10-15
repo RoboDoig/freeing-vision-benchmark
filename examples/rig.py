@@ -20,7 +20,7 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         display_index=1
     ),
     aruco_calibration_screen=ArucoCalibration(aruco_size=0.05, offset=Vector3(x=0.16, y=-0.08, z=0.0)),
-    aruco_calibration_subject=ArucoCalibration(aruco_size=0.02),
+    aruco_calibration_subject=ArucoCalibration(aruco_size=0.02, offset=Vector3(x=0.01, y=0.003, z=0.013)), # Here corresponds to marker's offset from optical axis of camera
     track_shape_scale=0.35,
     behavior_board=BehaviorBoard(
         port_name="COM4",
