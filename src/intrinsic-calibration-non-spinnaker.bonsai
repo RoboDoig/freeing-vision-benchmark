@@ -162,7 +162,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Take">
-          <rx:Count>10</rx:Count>
+          <rx:Count>7</rx:Count>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -210,7 +210,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:SaveIntrinsics">
-          <cv:FileName>intrinsics/camera_25224819/2026-7-15/2026-7-15T10-24-42_intrinsics.yml</cv:FileName>
+          <cv:FileName>intrinsics/camera_LOGI/2026-11-18/2026-11-18T16-31-46_intrinsics.yml</cv:FileName>
           <cv:Suffix>None</cv:Suffix>
         </Combinator>
       </Expression>

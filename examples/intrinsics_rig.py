@@ -26,7 +26,7 @@ rig = IntrinsicsCalibrationRig(
         )
     ),
     camera=SpinnakerCamera(
-        serial_number="25170682",
+        serial_number="LOGI",
         trigger_frequency=100,
         exposure_time=2000,
         binning=1

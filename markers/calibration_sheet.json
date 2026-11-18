@@ -1,0 +1,153 @@
+{
+  "description": "Nominal arena-calibration sheet geometry. Plane frame: origin at marker 0 centre, +x towards marker 1, +y towards marker 3, +z out of the paper. Units: metres. Marker corners in OpenCV order (TL, TR, BR, BL).",
+  "dictionary": "DICT_ARUCO_ORIGINAL",
+  "paper_size_mm": [
+    210.0,
+    297.0
+  ],
+  "marker_size": 0.04,
+  "grid_size": 0.01,
+  "grid_cells": [
+    15,
+    23
+  ],
+  "grid_origin": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "grid_extent": [
+    0.15,
+    0.23
+  ],
+  "marker_center_spacing": [
+    0.15,
+    0.23
+  ],
+  "markers": [
+    {
+      "index": 0,
+      "id": 10,
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corners": [
+        [
+          -0.02,
+          0.02,
+          0.0
+        ],
+        [
+          0.02,
+          0.02,
+          0.0
+        ],
+        [
+          0.02,
+          -0.02,
+          0.0
+        ],
+        [
+          -0.02,
+          -0.02,
+          0.0
+        ]
+      ]
+    },
+    {
+      "index": 1,
+      "id": 11,
+      "center": [
+        0.15,
+        0.0,
+        0.0
+      ],
+      "corners": [
+        [
+          0.13,
+          0.02,
+          0.0
+        ],
+        [
+          0.17,
+          0.02,
+          0.0
+        ],
+        [
+          0.17,
+          -0.02,
+          0.0
+        ],
+        [
+          0.13,
+          -0.02,
+          0.0
+        ]
+      ]
+    },
+    {
+      "index": 2,
+      "id": 12,
+      "center": [
+        0.15,
+        0.23,
+        0.0
+      ],
+      "corners": [
+        [
+          0.13,
+          0.25,
+          0.0
+        ],
+        [
+          0.17,
+          0.25,
+          0.0
+        ],
+        [
+          0.17,
+          0.21,
+          0.0
+        ],
+        [
+          0.13,
+          0.21,
+          0.0
+        ]
+      ]
+    },
+    {
+      "index": 3,
+      "id": 13,
+      "center": [
+        0.0,
+        0.23,
+        0.0
+      ],
+      "corners": [
+        [
+          -0.02,
+          0.25,
+          0.0
+        ],
+        [
+          0.02,
+          0.25,
+          0.0
+        ],
+        [
+          0.02,
+          0.21,
+          0.0
+        ],
+        [
+          -0.02,
+          0.21,
+          0.0
+        ]
+      ]
+    }
+  ]
+}
