@@ -49,3 +49,8 @@ required-version = '>=0.8.4'
 
 [tool.uv.sources]
 open-rigs = {git = "https://github.com/open-rigs/open-rigs", branch = "aeon-api"}
+
+[dependency-groups]
+analysis = [
+    "onnxruntime>=1.31.0",
+]

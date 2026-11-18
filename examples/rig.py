@@ -43,7 +43,7 @@ rig = UclOpenFreeingVisionBenchmarkRig(
         calibration_file="./intrinsics/camera_25170682/2026-10-15/2026-10-15T12-12-48_intrinsics.yml",
         serial_number="25170682",
         trigger_frequency=track_camera_trigger_frequency,
-        exposure_time=12000,
+        exposure_time=5000,
         binning=2
     ),
 )
