@@ -740,11 +740,6 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Devices:TriggeredSpinnaker.bonsai">
-              <ExposureTime>5000</ExposureTime>
-              <Gain>0</Gain>
-              <Binning>2</Binning>
-              <SerialNumber>25224819</SerialNumber>
-              <ColorProcessing>Default</ColorProcessing>
               <CameraTriggerEventsSubjectName>Camera0TriggerEvents</CameraTriggerEventsSubjectName>
               <FrameEventsSubjectName>SubjectFrameEvents</FrameEventsSubjectName>
             </Expression>
@@ -776,11 +771,6 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="OpenRigs.Devices:TriggeredSpinnaker.bonsai">
-              <ExposureTime>5000</ExposureTime>
-              <Gain>2</Gain>
-              <Binning>2</Binning>
-              <SerialNumber>25170682</SerialNumber>
-              <ColorProcessing>Default</ColorProcessing>
               <CameraTriggerEventsSubjectName>Camera1TriggerEvents</CameraTriggerEventsSubjectName>
               <FrameEventsSubjectName>TrackFrameEvents</FrameEventsSubjectName>
             </Expression>
