@@ -1,9 +1,236 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:aruco="clr-namespace:Bonsai.Aruco;assembly=Bonsai.Aruco"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:p1="clr-namespace:UclOpenFreeingVisionBenchmark;assembly=Extensions"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
-    <Nodes />
-    <Edges />
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CameraCapture">
+          <cv:Index>1</cv:Index>
+          <cv:CaptureProperties />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:DetectMarkers">
+          <aruco:CameraParameters>intrinsics\camera_LOGI\2026-11-18\2026-11-18T16-31-46_intrinsics.yml</aruco:CameraParameters>
+          <aruco:ThresholdMethod>AdaptiveThreshold</aruco:ThresholdMethod>
+          <aruco:Param1>7</aruco:Param1>
+          <aruco:Param2>7</aruco:Param2>
+          <aruco:MinSize>0.04</aruco:MinSize>
+          <aruco:MaxSize>0.5</aruco:MaxSize>
+          <aruco:CornerRefinement>Lines</aruco:CornerRefinement>
+          <aruco:MarkerSize>10</aruco:MarkerSize>
+          <aruco:SetYPerpendicular>false</aruco:SetYPerpendicular>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>10</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:ExtrinsicsTransform" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item2</Selector>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="X" Selector="X" />
+          <Property Name="Y" Selector="Y" />
+          <Property Name="Z" Selector="Z" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateVector3">
+          <gl:X>-6.466795</gl:X>
+          <gl:Y>-24.9517765</gl:Y>
+          <gl:Z>-97.45233</gl:Z>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:RobustAverage">
+          <p1:Count>100</p1:Count>
+          <p1:Skip xsi:nil="true" />
+          <p1:Method>Mean</p1:Method>
+          <p1:OutlierThreshold>3</p1:OutlierThreshold>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>11</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:ExtrinsicsTransform" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item2</Selector>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="X" Selector="X" />
+          <Property Name="Y" Selector="Y" />
+          <Property Name="Z" Selector="Z" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateVector3">
+          <gl:X>31.8844566</gl:X>
+          <gl:Y>-27.7803631</gl:Y>
+          <gl:Z>-98.08983</gl:Z>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:RobustAverage">
+          <p1:Count>100</p1:Count>
+          <p1:Skip xsi:nil="true" />
+          <p1:Method>Mean</p1:Method>
+          <p1:OutlierThreshold>3</p1:OutlierThreshold>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>12</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:ExtrinsicsTransform" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item2</Selector>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="X" Selector="X" />
+          <Property Name="Y" Selector="Y" />
+          <Property Name="Z" Selector="Z" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateVector3">
+          <gl:X>35.3047523</gl:X>
+          <gl:Y>28.0107136</gl:Y>
+          <gl:Z>-114.218582</gl:Z>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:RobustAverage">
+          <p1:Count>100</p1:Count>
+          <p1:Skip xsi:nil="true" />
+          <p1:Method>Mean</p1:Method>
+          <p1:OutlierThreshold>3</p1:OutlierThreshold>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:SelectMarker">
+          <aruco:Id>13</aruco:Id>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aruco:MarkerViewMatrix" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:ExtrinsicsTransform" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Item2</Selector>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="X" Selector="X" />
+          <Property Name="Y" Selector="Y" />
+          <Property Name="Z" Selector="Z" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateVector3">
+          <gl:X>-2.820087</gl:X>
+          <gl:Y>30.513588</gl:Y>
+          <gl:Z>-114.353226</gl:Z>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:RobustAverage">
+          <p1:Count>100</p1:Count>
+          <p1:Skip xsi:nil="true" />
+          <p1:Method>Mean</p1:Method>
+          <p1:OutlierThreshold>3</p1:OutlierThreshold>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>MarkerCentroids</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:KabschFit">
+          <p1:ReferenceFileName>..\markers\calibration_sheet.json</p1:ReferenceFileName>
+          <p1:MarkerIds>
+            <p1:int>10</p1:int>
+            <p1:int>11</p1:int>
+            <p1:int>12</p1:int>
+            <p1:int>13</p1:int>
+          </p1:MarkerIds>
+          <p1:ReferenceScale>1</p1:ReferenceScale>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>ArenaFit</Name>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="9" Label="Source1" />
+      <Edge From="1" To="16" Label="Source1" />
+      <Edge From="1" To="23" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="30" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="30" Label="Source2" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="30" Label="Source3" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="29" To="30" Label="Source4" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
+    </Edges>
   </Workflow>
 </WorkflowBuilder>

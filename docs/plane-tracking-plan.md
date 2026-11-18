@@ -61,6 +61,7 @@ Use the existing **Bonsai.Aruco `DetectMarkers`** pipeline, as already used in `
    - Per-marker fit residuals in mm.
    - Measured vs nominal distances between marker centres. A consistent scale error means the `MarkerSize` parameter does not match the printed size.
    - Plane flatness. Fitting a plane through the four centres should leave residuals of no more than about 1 mm.
+   Steps 2–4 are implemented as Bonsai operators in `src/Extensions`: `RobustAverage` (per-marker batched average with MAD outlier rejection) and `KabschFit` (outputs a `RigidFit` with rotation, translation, OpenTK `Transform`, residuals and `ScaleRatio`). They are wired into `src/plane-benchmark.bonsai`.
 5. **Optional refinement.** If the residuals are too large, also log the marker corner pixels from `DetectMarkers`. Then, offline in Python, run a joint `cv2.solvePnP` on all 16 corners at once (`SOLVEPNP_IPPE` + `solvePnPRefineLM`), initialised from the Kabsch result. A joint fit over the whole arena is better conditioned than four independent small-marker poses, especially in depth. Report the reprojection RMS in pixels.
 
 Notes and checks for Bonsai.Aruco:
