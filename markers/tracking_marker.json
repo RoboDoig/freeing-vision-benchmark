@@ -1,0 +1,53 @@
+{
+  "description": "Nominal tracking-marker geometry. Marker frame: origin at the centre symbol, +x towards the right symbol, +y towards the top edge of the printed marker, +z out of the paper. Units: metres. Symbol positions are shape centroids.",
+  "marker_size": 0.04,
+  "symbol_size": 0.003,
+  "offset": 0.012,
+  "copies": 1,
+  "symbols": [
+    {
+      "name": "center",
+      "shape": "circle",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "left",
+      "shape": "cross",
+      "position": [
+        -0.012,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "right",
+      "shape": "diamond",
+      "position": [
+        0.012,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "skeleton": {
+    "nodes": [
+      "center",
+      "left",
+      "right"
+    ],
+    "edges": [
+      [
+        "left",
+        "center"
+      ],
+      [
+        "center",
+        "right"
+      ]
+    ]
+  }
+}
