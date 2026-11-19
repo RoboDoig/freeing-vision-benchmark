@@ -2563,6 +2563,149 @@ namespace UclOpenFreeingVisionBenchmark
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class UclOpenFreeingVisionPlaneBenchmarkModel
+    {
+    
+        private string _version;
+    
+        private Screen _screen;
+    
+        private ArucoCalibration _aruco1;
+    
+        private ArucoCalibration _aruco2;
+    
+        private CalibratedSpinnakerCamera _camera;
+    
+        public UclOpenFreeingVisionPlaneBenchmarkModel()
+        {
+            _version = "0.0.0-rc1";
+            _screen = new Screen();
+            _aruco1 = new ArucoCalibration();
+            _aruco2 = new ArucoCalibration();
+            _camera = new CalibratedSpinnakerCamera();
+        }
+    
+        protected UclOpenFreeingVisionPlaneBenchmarkModel(UclOpenFreeingVisionPlaneBenchmarkModel other)
+        {
+            _version = other._version;
+            _screen = other._screen;
+            _aruco1 = other._aruco1;
+            _aruco2 = other._aruco2;
+            _camera = other._camera;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("version")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="version")]
+        public string Version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                _version = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("screen", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="screen")]
+        public Screen Screen
+        {
+            get
+            {
+                return _screen;
+            }
+            set
+            {
+                _screen = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("aruco1", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="aruco1")]
+        public ArucoCalibration Aruco1
+        {
+            get
+            {
+                return _aruco1;
+            }
+            set
+            {
+                _aruco1 = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("aruco2", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="aruco2")]
+        public ArucoCalibration Aruco2
+        {
+            get
+            {
+                return _aruco2;
+            }
+            set
+            {
+                _aruco2 = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="camera")]
+        public CalibratedSpinnakerCamera Camera
+        {
+            get
+            {
+                return _camera;
+            }
+            set
+            {
+                _camera = value;
+            }
+        }
+    
+        public System.IObservable<UclOpenFreeingVisionPlaneBenchmarkModel> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new UclOpenFreeingVisionPlaneBenchmarkModel(this)));
+        }
+    
+        public System.IObservable<UclOpenFreeingVisionPlaneBenchmarkModel> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new UclOpenFreeingVisionPlaneBenchmarkModel(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Version = " + _version + ", ");
+            stringBuilder.Append("Screen = " + _screen + ", ");
+            stringBuilder.Append("Aruco1 = " + _aruco1 + ", ");
+            stringBuilder.Append("Aruco2 = " + _aruco2 + ", ");
+            stringBuilder.Append("Camera = " + _camera);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Vector3
     {
     
@@ -2960,6 +3103,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<UclOpenFreeingVisionBenchmarkTaskParameters>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<UclOpenFreeingVisionPlaneBenchmarkModel> source)
+        {
+            return Process<UclOpenFreeingVisionPlaneBenchmarkModel>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Vector3> source)
         {
             return Process<Vector3>(source);
@@ -3002,6 +3150,7 @@ namespace UclOpenFreeingVisionBenchmark
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkRigDebugModel>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskLogic>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskParameters>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionPlaneBenchmarkModel>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Vector3>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ViewportConfiguration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Json>))]
@@ -3144,6 +3293,11 @@ namespace UclOpenFreeingVisionBenchmark
             return Process<UclOpenFreeingVisionBenchmarkTaskParameters>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<UclOpenFreeingVisionPlaneBenchmarkModel> source)
+        {
+            return Process<UclOpenFreeingVisionPlaneBenchmarkModel>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Vector3> source)
         {
             return Process<Vector3>(source);
@@ -3186,6 +3340,7 @@ namespace UclOpenFreeingVisionBenchmark
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkRigDebugModel>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskLogic>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionBenchmarkTaskParameters>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<UclOpenFreeingVisionPlaneBenchmarkModel>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Vector3>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ViewportConfiguration>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Json>))]

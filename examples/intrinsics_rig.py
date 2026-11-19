@@ -4,10 +4,10 @@ from ucl_open_freeing_vision_benchmark.intrinsics_rig import (
     IntrinsicsCalibrationRig
 )
 
-from ucl_open.core.rig import Rig
-from ucl_open.devices.behavior_board import BehaviorBoard, CameraTriggerController
-from ucl_open.video import SpinnakerCamera
-from ucl_open.vision import Screen
+from open_rigs.core.rig import Rig
+from open_rigs.devices.behavior_board import BehaviorBoard, CameraTriggerController
+from open_rigs.video import SpinnakerCamera
+from open_rigs.vision import Screen
 
 rig = IntrinsicsCalibrationRig(
     root_path="../temp_data",
@@ -26,7 +26,7 @@ rig = IntrinsicsCalibrationRig(
         )
     ),
     camera=SpinnakerCamera(
-        serial_number="LOGI",
+        serial_number="25224819",
         trigger_frequency=100,
         exposure_time=2000,
         binning=1

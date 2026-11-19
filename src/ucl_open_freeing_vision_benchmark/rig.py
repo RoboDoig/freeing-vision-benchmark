@@ -72,3 +72,10 @@ class UclOpenFreeingVisionBenchmarkRigDebugModel(BaseSchema):
     aruco_1: ArucoCalibration
     aruco_2: ArucoCalibration
     intrinsics_calibration: str
+
+class UclOpenFreeingVisionPlaneBenchmarkModel(BaseSchema):
+    version: Literal[__semver__] = __semver__
+    screen: Screen
+    aruco_1: ArucoCalibration
+    aruco_2: ArucoCalibration
+    camera: CalibratedSpinnakerCamera
